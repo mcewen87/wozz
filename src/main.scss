@@ -1,0 +1,59 @@
+@import "./utilities/vars";
+
+body {
+  margin: 0px;
+  background-color: $green;
+}
+
+p {
+  font-family: $content;
+  color: $black;
+  align-self: center;
+  margin: 0px;
+  font-size: 1.2rem;
+  line-height: 150%;
+}
+
+h1 {
+  font-family: $titles;
+  margin: 0px;
+  align-self: center;
+  color: #f9f7f6;
+  font-size: 3rem;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.verticalCenter {
+  align-self: center;
+  margin: auto 0px;
+}
+
+.donation {
+  margin: 0px 0px 25px 0px;
+}
+
+.navBar {
+  height: 75px;
+  width: 100%;
+  background-color: $green;
+}
+
+.footer {
+  height: 100px;
+  width: 100%;
+  background-color: $green;
+  flex-shrink: 0;
+}

@@ -3,16 +3,15 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Tracker from "../components/tracker"
-
 import SEO from "../components/seo"
 
 import { connect } from "react-redux"
 
-const SecondPage = () => (
+const WozzApp = () => (
   <Layout>
     <SEO title="Page two" />
     <Tracker />
   </Layout>
 )
 
-export default SecondPage
+export default WozzApp

@@ -1,0 +1,14 @@
+@import "../utilities/vars";
+
+.buttonCat {
+  background-color: $black;
+  color: $white;
+  width: auto;
+  margin: 8px 0px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.buttonCat:hover {
+  background-color: #000;
+}

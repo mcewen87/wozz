@@ -1,21 +1,36 @@
-import React from "react"
+import React, { Component } from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
+import Welcome from "../components/welcome"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import Tracker from "../components/tracker"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+class IndexPage extends Component {
+  constructor() {
+    super()
+    this.state = {
+      use: false,
+    }
+    this.toggleUse = this.toggleUse.bind(this)
+  }
+  toggleUse() {
+    this.setState({ use: true })
+  }
+  render() {
+    const use = localStorage.getItem("use")
+    return (
+      <div>
+        <SEO title="Home" />
+
+        <Layout>
+          {!use && <Welcome sendUse={this.toggleUse} />}
+          {use && <Tracker />}
+        </Layout>
+      </div>
+    )
+  }
+}
 
 export default IndexPage

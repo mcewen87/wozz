@@ -1,0 +1,7 @@
+export const CHANGE_CATEGORY = "CHANGE_CATEGORY";
+export const ADD_EVENT = "CHANGE_EVENT";
+export const RESET_EVENT = "RESET_EVENT";
+export const DELETE_EVENT = "DELETE_EVENT";
+export const DELETE_CATEGORY = "DELETE_CATEGORY";
+export const ADD_CATEGORY = "ADD_CATEGORY";
+export const RESET_CATEGORY = "RESET_CATEGORY";
