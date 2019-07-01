@@ -29,6 +29,7 @@
 .dropDownLink {
   margin: 10px 0px 10px 30px;
   font-family: $content;
+  color: $yellow;
 }
 
 .linkFirst {
@@ -82,7 +83,12 @@ li ul {
 /*Make dropdown links vertical*/
 li ul li {
   display: block;
+  width: 200px;
   float: none;
+  background-color: $yellow;
+  margin: 10px;
+  box-sizing: border-box;
+  padding: 3px 10px;
 }
 /*Prevent text wrapping*/
 li ul li a {

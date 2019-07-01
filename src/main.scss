@@ -57,3 +57,12 @@ h1 {
   background-color: $green;
   flex-shrink: 0;
 }
+
+@media screen and (max-width: 600px) {
+  .content {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+}
