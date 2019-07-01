@@ -18,25 +18,27 @@ class IndexPage extends Component {
     this.toggleUse = this.toggleUse.bind(this)
   }
   componentDidMount() {
+    const check = localStorage.getItem("use")
+    this.setState(use: check )
     if (this.state.first === true) {
       const eventData = JSON.parse(localStorage.getItem("events"))
       this.props.getData({
         events: eventData,
       })
     }
+
   }
   toggleUse() {
     this.setState({ use: true })
   }
   render() {
-    const use = localStorage.getItem("use")
     return (
       <div>
         <SEO title="Home" />
 
         <Layout>
-          {!use && <Welcome sendUse={this.toggleUse} />}
-          {use && <Tracker />}
+          {!this.state.use && <Welcome sendUse={this.toggleUse} />}
+          {this.state.use && <Tracker />}
         </Layout>
       </div>
     )
