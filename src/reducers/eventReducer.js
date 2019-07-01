@@ -11,17 +11,15 @@ import saveData from "./helperFunctions/saveData"
 import uuid from "uuid"
 import moment from "moment"
 
-const windowGlobal = typeof window !== "undefined" && window
-
-if (windowGlobal.localStorage.getItem("fixed")) {
+if (localStorage.getItem("fixed")) {
   console.log("Items Cleared")
 } else {
   console.log("Added Fixed")
-  windowGlobal.localStorage.clear()
-  windowGlobal.localStorage.setItem("fixed", JSON.stringify("true"))
+  localStorage.clear()
+  localStorage.setItem("fixed", JSON.stringify("true"))
 }
 
-const localData = JSON.parse(windowGlobal.localStorage.getItem("events"))
+const localData = JSON.parse(localStorage.getItem("events"))
 
 const initialState = localData !== null ? localData : firstState
 
