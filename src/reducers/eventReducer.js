@@ -24,7 +24,7 @@ import moment from "moment"
 
 const initialState = firstState
 
-export default function handleEvents(state = initialState, action) {
+export default function handleEvents(state = [], action) {
   switch (action.type) {
     case ADD_EVENT:
       const newEvent = {

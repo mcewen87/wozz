@@ -7,6 +7,7 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 import Tracker from "../components/tracker"
 import { getData } from "../actions/getData"
+import firstState from "../reducers/initialData"
 
 class IndexPage extends Component {
   constructor() {
@@ -19,11 +20,17 @@ class IndexPage extends Component {
   }
   componentDidMount() {
     const check = localStorage.getItem("use")
+    const eventData = JSON.parse(localStorage.getItem("events"))
+    console.log(eventData !== null)
     this.setState({ use: check })
-    if (this.state.first === true) {
-      const eventData = JSON.parse(localStorage.getItem("events"))
+    if (eventData !== null) {
       this.props.getData({
         events: eventData,
+      })
+    } else {
+      console.log(firstState)
+      this.props.getData({
+        events: firstState,
       })
     }
   }
