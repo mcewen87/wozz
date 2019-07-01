@@ -4,6 +4,7 @@ import {
   DELETE_EVENT,
   DELETE_CATEGORY,
   ADD_CATEGORY,
+  GET_DATA,
 } from "../actions/types"
 import firstState from "./initialData"
 import updateEventState from "./helperFunctions/updateEventState"
@@ -11,17 +12,17 @@ import saveData from "./helperFunctions/saveData"
 import uuid from "uuid"
 import moment from "moment"
 
-if (localStorage.getItem("fixed")) {
-  console.log("Items Cleared")
-} else {
-  console.log("Added Fixed")
-  localStorage.clear()
-  localStorage.setItem("fixed", JSON.stringify("true"))
-}
+// if (localStorage.getItem("fixed")) {
+//   console.log("Items Cleared")
+// } else {
+//   console.log("Added Fixed")
+//   localStorage.clear()
+//   localStorage.setItem("fixed", JSON.stringify("true"))
+// }
 
-const localData = JSON.parse(localStorage.getItem("events"))
+// const localData = JSON.parse(localStorage.getItem("events"))
 
-const initialState = localData !== null ? localData : firstState
+const initialState = firstState
 
 export default function handleEvents(state = initialState, action) {
   switch (action.type) {
@@ -131,6 +132,9 @@ export default function handleEvents(state = initialState, action) {
 
       saveData("events", newCategories)
       return newCategories
+
+    case GET_DATA:
+      return action.data.events
 
     default:
       return state
