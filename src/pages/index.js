@@ -19,14 +19,13 @@ class IndexPage extends Component {
   }
   componentDidMount() {
     const check = localStorage.getItem("use")
-    this.setState(use: check )
+    this.setState({ use: check })
     if (this.state.first === true) {
       const eventData = JSON.parse(localStorage.getItem("events"))
       this.props.getData({
         events: eventData,
       })
     }
-
   }
   toggleUse() {
     this.setState({ use: true })
