@@ -2,78 +2,78 @@
 
 @keyframes ldsbricks {
   0% {
-    top: 30px;
-    left: 110px;
+    top: 56px;
+    left: 104px;
   }
   8.3% {
-    top: 110px;
-    left: 110px;
+    top: 104px;
+    left: 104px;
   }
   25% {
-    top: 110px;
-    left: 110px;
+    top: 104px;
+    left: 104px;
   }
   33.3% {
-    top: 110px;
-    left: 30px;
+    top: 104px;
+    left: 56px;
   }
   50% {
-    top: 110px;
-    left: 30px;
+    top: 104px;
+    left: 56px;
   }
   58.3% {
-    top: 30px;
-    left: 30px;
+    top: 56px;
+    left: 56px;
   }
   75% {
-    top: 30px;
-    left: 30px;
+    top: 56px;
+    left: 56px;
   }
   83.3% {
-    top: 30px;
-    left: 110px;
+    top: 56px;
+    left: 104px;
   }
   100% {
-    top: 30px;
-    left: 110px;
+    top: 56px;
+    left: 104px;
   }
 }
 @-webkit-keyframes ldsbricks {
   0% {
-    top: 30px;
-    left: 110px;
+    top: 56px;
+    left: 104px;
   }
   8.3% {
-    top: 110px;
-    left: 110px;
+    top: 104px;
+    left: 104px;
   }
   25% {
-    top: 110px;
-    left: 110px;
+    top: 104px;
+    left: 104px;
   }
   33.3% {
-    top: 110px;
-    left: 30px;
+    top: 104px;
+    left: 56px;
   }
   50% {
-    top: 110px;
-    left: 30px;
+    top: 104px;
+    left: 56px;
   }
   58.3% {
-    top: 30px;
-    left: 30px;
+    top: 56px;
+    left: 56px;
   }
   75% {
-    top: 30px;
-    left: 30px;
+    top: 56px;
+    left: 56px;
   }
   83.3% {
-    top: 30px;
-    left: 110px;
+    top: 56px;
+    left: 104px;
   }
   100% {
-    top: 30px;
-    left: 110px;
+    top: 56px;
+    left: 104px;
   }
 }
 .ldsbricks {
@@ -81,8 +81,8 @@
 }
 .ldsbricks div {
   position: absolute;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border-radius: 6px;
   -webkit-animation: ldsbricks 1.8s linear infinite;
   animation: ldsbricks 1.8s linear infinite;
@@ -93,7 +93,7 @@
   animation-delay: -0.45s;
 }
 .ldsbricks div:nth-child(2) {
-  background: $yellow;
+  background: $yello;
   -webkit-animation-delay: -1.05s;
   animation-delay: -1.05s;
 }
