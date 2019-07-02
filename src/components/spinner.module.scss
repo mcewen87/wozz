@@ -1,0 +1,119 @@
+@import "../utilities/vars";
+
+@keyframes ldsbricks {
+  0% {
+    top: 30px;
+    left: 110px;
+  }
+  8.3% {
+    top: 110px;
+    left: 110px;
+  }
+  25% {
+    top: 110px;
+    left: 110px;
+  }
+  33.3% {
+    top: 110px;
+    left: 30px;
+  }
+  50% {
+    top: 110px;
+    left: 30px;
+  }
+  58.3% {
+    top: 30px;
+    left: 30px;
+  }
+  75% {
+    top: 30px;
+    left: 30px;
+  }
+  83.3% {
+    top: 30px;
+    left: 110px;
+  }
+  100% {
+    top: 30px;
+    left: 110px;
+  }
+}
+@-webkit-keyframes ldsbricks {
+  0% {
+    top: 30px;
+    left: 110px;
+  }
+  8.3% {
+    top: 110px;
+    left: 110px;
+  }
+  25% {
+    top: 110px;
+    left: 110px;
+  }
+  33.3% {
+    top: 110px;
+    left: 30px;
+  }
+  50% {
+    top: 110px;
+    left: 30px;
+  }
+  58.3% {
+    top: 30px;
+    left: 30px;
+  }
+  75% {
+    top: 30px;
+    left: 30px;
+  }
+  83.3% {
+    top: 30px;
+    left: 110px;
+  }
+  100% {
+    top: 30px;
+    left: 110px;
+  }
+}
+.ldsbricks {
+  position: relative;
+}
+.ldsbricks div {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  -webkit-animation: ldsbricks 1.8s linear infinite;
+  animation: ldsbricks 1.8s linear infinite;
+}
+.ldsbricks div:nth-child(1) {
+  background: $blue;
+  -webkit-animation-delay: -0.45s;
+  animation-delay: -0.45s;
+}
+.ldsbricks div:nth-child(2) {
+  background: $yellow;
+  -webkit-animation-delay: -1.05s;
+  animation-delay: -1.05s;
+}
+.ldsbricks div:nth-child(3) {
+  background: $red;
+  -webkit-animation-delay: -1.65s;
+  animation-delay: -1.65s;
+}
+.ldsbricks {
+  align-self: center;
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 75vh;
+}

@@ -7,6 +7,7 @@ import { resetCategory } from "../actions/resetCategory"
 import Moment from "react-moment"
 import "../main.scss"
 import tracker from "./tracker.module.scss"
+import Spinner from "./spinner"
 import Add from "./add"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
