@@ -16,10 +16,20 @@
   color: $white;
 }
 
+.linkTwo {
+  font-family: $content;
+  margin-left: 30px;
+  text-decoration: none;
+  color: $blue;
+  font-size: 1rem;
+}
+
 .down {
+  position: relative;
   color: $white;
   align-self: center;
-  margin-left: 3px;
+  margin-left: 5px;
+  top: 2px;
 }
 
 .dropDown {
