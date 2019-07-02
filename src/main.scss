@@ -62,7 +62,8 @@ h1 {
 
 @media screen and (max-width: 600px) {
   .content {
-    width: 95%;
+    width: 90%;
+    padding-top: 55px;
     display: flex;
     flex-direction: column;
     align-self: center;
