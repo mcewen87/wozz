@@ -50,28 +50,7 @@ class IndexPage extends Component {
     this.setState({ use: true })
   }
   render() {
-    if (this.state.isLoading) {
-      return <Spinner />
-    } else {
-      return (
-        <Layout>
-          {!this.state.use && <Welcome sendUse={this.toggleUse} />}
-          {this.state.use && <Tracker />}
-        </Layout>
-      )
-    }
-    // return (
-    //   <div>
-    //     <SEO title="Home" />
-    //     {this.state.isLoading && <Spinner />}
-    //     {!this.state.isLoading && (
-    //       <Layout>
-    //         {!this.state.use && <Welcome sendUse={this.toggleUse} />}
-    //         {this.state.use && <Tracker />}
-    //       </Layout>
-    //     )}
-    //   </div>
-    // )
+    return <h1>Hello</h1>
   }
 }
 
