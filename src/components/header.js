@@ -1,86 +1,47 @@
-// import { Link } from "gatsby"
-// import PropTypes from "prop-types"
-// import React from "react"
-// import header from "./header.module.scss"
-
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-// import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
-
-// const Header = () => (
-//   <header>
-//     <div className={header.navBar}>
-//       <ul>
-//         <li>
-//           <Link className={header.linkFirst} to="/">
-//             Wozz
-//             <FontAwesomeIcon className={header.down} icon={faChevronDown} />
-//           </Link>
-//           <ul className={header.hidden}>
-//             <li>
-//               <Link className={header.dropDownLink} to="/report">
-//                 Weekly Report
-//               </Link>
-//             </li>
-//             <li>
-//               <Link className={header.dropDownLink} to="/dashboard">
-//                 Dashboard
-//               </Link>
-//             </li>
-//           </ul>
-//         </li>
-
-//         <li>
-//           <Link className={header.link} to="/donate">
-//             Blog
-//           </Link>
-//         </li>
-//         <li>
-//           <Link className={header.link} to="/donate">
-//             Donate
-//           </Link>
-//         </li>
-//       </ul>
-//     </div>
-//   </header>
-// )
-
-// Header.propTypes = {
-//   siteTitle: PropTypes.string,
-// }
-
-// Header.defaultProps = {
-//   siteTitle: ``,
-// }
-
-// export default Header
-
-import React from "react"
 import { Link } from "gatsby"
+import PropTypes from "prop-types"
+import React from "react"
 import header from "./header.module.scss"
-import { slide as Menu } from "react-burger-menu"
+import Headroom from "react-headroom"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
+import { faCogs } from "@fortawesome/free-solid-svg-icons"
+import { faChartLine } from "@fortawesome/free-solid-svg-icons"
 
-export default props => {
-  return (
-    <Menu>
-      <Link className={header.linkFirst} to="/">
-        Wozz
-        <FontAwesomeIcon className={header.down} icon={faChevronDown} />
-      </Link>
-      <Link className={header.linkTwo} to="/">
-        Weekly Report
-      </Link>
-      <Link className={header.linkTwo} to="/dashboard">
-        Dashboard
-      </Link>
+const Header = () => (
+  <Headroom>
+    <div className={header.nav}>
+      <div className={header.navDiv}>
+        <Link className={header.link} to="/">
+          Wozz
+        </Link>
+        <Link className={header.link} to="/donate">
+          Blog
+        </Link>
+        <Link className={header.link} to="/donate">
+          Donate
+        </Link>
+      </div>
+      <div className={header.navDiv}>
+        <Link className={header.subLink} to="/report">
+          Weekly Report
+        </Link>
+        <FontAwesomeIcon className={header.icons} icon={faChartLine} />
+        <Link className={header.subLink} to="/dashboard">
+          Dashboard
+        </Link>
+        <FontAwesomeIcon className={header.icons} icon={faCogs} />
+      </div>
+    </div>
+  </Headroom>
+)
 
-      <Link className={header.link} to="/blog">
-        Blog
-      </Link>
-      <Link className={header.link} to="/donate">
-        Donate
-      </Link>
-    </Menu>
-  )
+Header.propTypes = {
+  siteTitle: PropTypes.string,
 }
+
+Header.defaultProps = {
+  siteTitle: ``,
+}
+
+export default Header
