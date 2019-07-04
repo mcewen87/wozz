@@ -5,6 +5,31 @@ body {
   background-color: $green;
 }
 
+.headroom {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+.headroom--unfixed {
+  position: relative;
+
+  transform: translateY(0);
+}
+.headroom--scrolled {
+  transition: transform 200ms ease-in-out;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.headroom--unpinned {
+  position: fixed;
+  transform: translateY(-100%);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.headroom--pinned {
+  position: fixed;
+  transform: translateY(0%);
+}
+
 p {
   font-family: $content;
   color: $black;
@@ -36,21 +61,6 @@ h1 {
   display: flex;
   flex-direction: column;
   align-self: center;
-}
-
-.verticalCenter {
-  align-self: center;
-  margin: auto 0px;
-}
-
-.donation {
-  margin: 0px 0px 25px 0px;
-}
-
-.navBar {
-  height: 75px;
-  width: 100%;
-  background-color: $green;
 }
 
 .footer {

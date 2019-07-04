@@ -1,11 +1,11 @@
 @import "../utilities/vars";
 
 .landing {
-  margin: auto;
+  position: relative;
   display: block;
   width: 100%;
-  height: 300px;
-  background-color: $green;
+  height: 200px;
+  background-color: $red;
   margin: 0px;
 }
 .mountainScene {
@@ -171,9 +171,3 @@ width = 1.41 x height(padding-bottom) */
   position: absolute;
   left: 62%;
 }
-// .ground {
-//   position: relative;
-//   height: 10%;
-//   background-color: $green;
-//   border: 4px solid green;
-// }

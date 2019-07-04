@@ -51,7 +51,11 @@ class IndexPage extends Component {
   }
   render() {
     if (this.state.isLoading) {
-      return <Spinner />
+      return (
+        <Layout>
+          <Spinner />
+        </Layout>
+      )
     } else {
       return (
         <Layout>

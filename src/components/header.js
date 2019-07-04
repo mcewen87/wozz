@@ -9,7 +9,7 @@ import { faCogs } from "@fortawesome/free-solid-svg-icons"
 import { faChartLine } from "@fortawesome/free-solid-svg-icons"
 
 const Header = () => (
-  <Headroom>
+  <Headroom disableInlineStyles="true">
     <div className={header.nav}>
       <div className={header.navDiv}>
         <Link className={header.link} to="/">
