@@ -16,6 +16,11 @@
   align-self: center;
 }
 
+.hide {
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
 .link {
   position: relative;
   align-self: center;
@@ -47,10 +52,10 @@
 @media screen and (max-width: 500px) {
   .link {
     margin: 0px 10px;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
-  .subLink {
+  .hide {
     display: none;
   }
 }

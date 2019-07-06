@@ -24,13 +24,14 @@ const Header = () => (
       </div>
       <div className={header.navDiv}>
         <Link className={header.subLink} to="/report">
-          Weekly Report
+          <span className={header.hide}> Weekly Report </span>
+          <FontAwesomeIcon className={header.icons} icon={faChartLine} />
         </Link>
-        <FontAwesomeIcon className={header.icons} icon={faChartLine} />
+
         <Link className={header.subLink} to="/dashboard">
-          Dashboard
+          <span className={header.hide}> Dashboard </span>{" "}
+          <FontAwesomeIcon className={header.icons} icon={faCogs} />
         </Link>
-        <FontAwesomeIcon className={header.icons} icon={faCogs} />
       </div>
     </div>
   </Headroom>

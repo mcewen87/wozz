@@ -1,0 +1,33 @@
+@import "../utilities/vars";
+
+.full {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.prompt {
+  font-family: $content;
+  color: $white;
+}
+
+.rank {
+  border: 3px solid $white;
+  background-color: $green;
+  color: $white;
+  font-family: $content;
+  margin: 10px 0px;
+  width: 100%;
+}
+
+.rankSub {
+  border: 3px solid $white;
+  background-color: $black;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  color: $white;
+  font-family: $content;
+  width: 200px;
+  align-self: flex-end;
+  margin: 0px;
+}

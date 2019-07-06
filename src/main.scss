@@ -9,7 +9,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 500;
 }
 .headroom--unfixed {
   position: relative;
@@ -68,6 +68,30 @@ h1 {
   width: 100%;
   background-color: $green;
   flex-shrink: 0;
+}
+.example-enter {
+  opacity: 0.01;
+  margin-left: 400px;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: all 1300ms ease;
+  margin-left: 0px;
+}
+
+.example-leave {
+  opacity: 1;
+  margin-right: 400px;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: all 200ms ease;
+}
+
+.modal {
+  background-color: $red;
 }
 
 @media screen and (max-width: 600px) {
