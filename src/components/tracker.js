@@ -18,6 +18,9 @@ import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons"
 
 const customStyles = {
   content: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
     border: "none",
     top: "50%",
     left: "50%",
@@ -197,14 +200,14 @@ class Tracker extends Component {
                 contentLabel="Example Modal"
               >
                 <div className="content">
-                  <h3 className={tracker.prompt}>
-                    How was your experience with "
-                    {this.state.selectedEvent.text}" ?
-                  </h3>
                   <div className={tracker.rankingBox}>{makeNumbers()}</div>
-                  <button onClick={this.closeModal} className={tracker.rankSub}>
-                    Submit
-                  </button>
+
+                  <div
+                    onClick={this.closeModal}
+                    className={tracker.submitContainer}
+                  >
+                    <h3 className={tracker.submitText}>Submit</h3>
+                  </div>
                 </div>
               </Modal>
             </div>
