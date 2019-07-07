@@ -29,10 +29,14 @@ export default function handleEvents(state = [], action) {
     case ADD_EVENT:
       const newEvent = {
         text: action.payload.entry,
+        less: action.payload.less,
+        more: action.payload.more,
+
         timestamp: Date.now(),
         thisWeek: {
           value: action.payload.thisWeek,
           counts: 0,
+          ratings: [action.payload.experience],
         },
         lastWeek: {},
         id: uuid.v4(),
@@ -71,6 +75,7 @@ export default function handleEvents(state = [], action) {
                 thisWeek: {
                   value: moment().format("W"),
                   counts: e.thisWeek.counts + 1,
+                  ratings: e.thisWeek.ratings.concat(action.payload.rating),
                 },
               })
             } else {
@@ -80,6 +85,7 @@ export default function handleEvents(state = [], action) {
                 thisWeek: {
                   value: moment().format("w"),
                   counts: 0,
+                  ratings: [],
                 },
               })
             }

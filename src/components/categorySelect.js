@@ -31,6 +31,7 @@ class CategorySelect extends Component {
       { value: "Diet", label: "Diet" },
       { value: "Health", label: "Health" },
       { value: "Exercise", label: "Exercise" },
+      { value: "Food & Drink", label: "Food & Drink" },
       { value: "Social", label: "Social" },
       { value: "Family", label: "Family" },
       { value: "Friendship", label: "Friendship" },

@@ -18,12 +18,19 @@ import { faLongArrowAltRight } from "@fortawesome/free-solid-svg-icons"
 
 const customStyles = {
   content: {
+    border: "none",
     top: "50%",
     left: "50%",
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
+    height: "100vh",
     transform: "translate(-50%, -50%)",
+    backgroundColor: "#70C1B3",
+  },
+  overlay: {
+    zIndex: 1000,
+    backgroundColor: "#70C1B3",
   },
 }
 
@@ -32,10 +39,14 @@ class Tracker extends Component {
     super()
     this.state = {
       modalIsOpen: false,
+      selectedEvent: {},
+      experience: "neutral",
     }
     this.changeCat = this.changeCat.bind(this)
     this.resetEvent = this.resetEvent.bind(this)
     this.deleteEvent = this.deleteEvent.bind(this)
+    this.setRating = this.setRating.bind(this)
+
     this.openModal = this.openModal.bind(this)
     this.afterOpenModal = this.afterOpenModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
@@ -52,14 +63,19 @@ class Tracker extends Component {
   closeModal() {
     this.setState({ modalIsOpen: false })
   }
+
+  setRating(value) {
+    this.setState({ rating: value })
+  }
   changeCat(id) {
     this.props.changeCategory(id)
   }
 
   resetEvent(event) {
-    this.setState({ modalIsOpen: true })
+    this.setState({ modalIsOpen: true, selectedEvent: event })
     this.props.resetEvent({
       obj: event,
+      rating: this.state.rating,
       category: this.props.category,
     })
   }
@@ -80,6 +96,36 @@ class Tracker extends Component {
 
       const categoryThread = this.props.events.find((c, i) => i === categoryId)
 
+      const makeNumbers = () => {
+        let list = ["Positve", "Negative", "Neutral"]
+        let numbers = list.map((e, i) => {
+          if (this.state.rating == e) {
+            return (
+              <div
+                onClick={() => {
+                  this.setRating(e)
+                }}
+                className={tracker.numTileSelected}
+              >
+                <h3 className={tracker.rankingSelected}>{e}</h3>
+              </div>
+            )
+          } else {
+            return (
+              <div
+                onClick={() => {
+                  this.setRating(e)
+                }}
+                className={tracker.numTile}
+              >
+                <h3 className={tracker.ranking}>{e}</h3>
+              </div>
+            )
+          }
+        })
+        return numbers
+      }
+
       const events = categoryThread.events.map((e, index) => {
         return (
           <div key={index} className={tracker.card}>
@@ -92,24 +138,24 @@ class Tracker extends Component {
               <h2 className={tracker.reset}>
                 Reset <span>{e.thisWeek.counts}</span> times this week.
               </h2>
-              <div>
-                <button
-                  className={tracker.trackers}
-                  onClick={() => {
-                    this.resetEvent(e)
-                  }}
-                >
-                  Reset
-                </button>
-                <button
-                  className={tracker.trackers}
-                  onClick={() => {
-                    this.deleteEvent(index)
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
+            </div>
+            <div className={tracker.buttonBar}>
+              <button
+                className={tracker.trackers}
+                onClick={() => {
+                  this.resetEvent(e)
+                }}
+              >
+                Reset
+              </button>
+              <button
+                className={tracker.trackers}
+                onClick={() => {
+                  this.deleteEvent(index)
+                }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         )
@@ -133,10 +179,8 @@ class Tracker extends Component {
         <div className="container">
           <div className="content">
             <p className={tracker.brilliant}>You're brilliant, kid</p>
-
             <Add />
             <div className={tracker.navBar}>{tiles}</div>
-
             <ReactCSSTransitionGroup
               transitionName="example"
               transitionEnterTimeout={1300}
@@ -152,20 +196,15 @@ class Tracker extends Component {
                 style={customStyles}
                 contentLabel="Example Modal"
               >
-                <div className={tracker.full}>
-                  <div>
-                    <h3 className={tracker.prompt}>How was your experience?</h3>
-                    <button className={tracker.rank}>Positive</button>
-                    <button className={tracker.rank}>Neutral</button>
-                    <button className={tracker.rank}>Negative</button>
-                    <button className={tracker.rank}>Not Applicable</button>
-                    <button
-                      onClick={this.closeModal}
-                      className={tracker.rankSub}
-                    >
-                      Submit
-                    </button>
-                  </div>
+                <div className="content">
+                  <h3 className={tracker.prompt}>
+                    How was your experience with "
+                    {this.state.selectedEvent.text}" ?
+                  </h3>
+                  <div className={tracker.rankingBox}>{makeNumbers()}</div>
+                  <button onClick={this.closeModal} className={tracker.rankSub}>
+                    Submit
+                  </button>
                 </div>
               </Modal>
             </div>
