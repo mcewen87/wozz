@@ -1,0 +1,51 @@
+@import "../utilities/vars";
+
+.section {
+  background-color: $black;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  padding: 30px;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.eventContainer {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eventHeader {
+  width: 95%;
+  height: 100px;
+  box-sizing: border-box;
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
+  background-color: $red;
+
+  margin: 10px auto 0px auto;
+  z-index: 100;
+}
+
+.eventBody {
+  position: relative;
+  width: 95%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  border-radius: 0px 0px 10px 10px;
+  padding: 20px;
+  background-color: $white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin: 0px auto 10px auto;
+  z-index: 1;
+}
+
+.eventName {
+  font-family: $content;
+  color: $white;
+}

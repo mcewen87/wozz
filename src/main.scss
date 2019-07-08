@@ -33,7 +33,6 @@ body {
 p {
   font-family: $content;
   color: $black;
-  align-self: center;
   margin: 0px;
   font-size: 1.2rem;
   line-height: 150%;
@@ -42,7 +41,7 @@ p {
 h1 {
   font-family: $titles;
   margin: 0px;
-  align-self: center;
+
   color: #f9f7f6;
   font-size: 3rem;
 }

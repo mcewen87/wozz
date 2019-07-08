@@ -27,7 +27,7 @@ const Welcome = props => (
           <span className={welcome.rightback}></span>
         </div>
       </div>
-      <h1>Wozz</h1>
+      <h1 className={welcome.wozz}>Wozz</h1>
       <div className={welcome.row}>
         <p className={welcome.message}>Time + Life Management for All</p>
         <FontAwesomeIcon className={welcome.heart} icon={faHeart} />{" "}
