@@ -28,18 +28,18 @@ export default function handleEvents(state = [], action) {
   switch (action.type) {
     case ADD_EVENT:
       const newEvent = {
+        id: uuid.v4(),
+        timestamp: Date.now(),
         text: action.payload.entry,
         less: action.payload.less,
         more: action.payload.more,
-
-        timestamp: Date.now(),
+        resetHistory: [],
         thisWeek: {
           value: action.payload.thisWeek,
           counts: 0,
           ratings: [action.payload.experience],
         },
         lastWeek: {},
-        id: uuid.v4(),
       }
       const categoryIndex = action.payload.category
       const oldCategory = state[categoryIndex]

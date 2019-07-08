@@ -111,7 +111,7 @@ class Add extends Component {
           </div>
           {this.state.error && <p className={add.error}>¯\_(ツ)_/¯ Oops...</p>}
         </div>
-        <div className={add.checkHolder}>
+        <div className={add.checkHolderTwo}>
           <div className={add.frequencyBox}>
             <p className={add.freq}>Positive:</p>
             <input

@@ -15,9 +15,14 @@
 
 .checkHolder {
   display: flex;
-  margin: 10px;
-  height: 25px;
+  margin: 15px 0px 3px 10px;
+  padding-top: 8px;
   border-top: 2px dotted $blue;
+}
+
+.checkHolderTwo {
+  display: flex;
+  margin: 0px 0px 5px 10px;
 }
 
 .rating {
