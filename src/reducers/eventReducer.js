@@ -33,7 +33,12 @@ export default function handleEvents(state = [], action) {
         text: action.payload.entry,
         less: action.payload.less,
         more: action.payload.more,
-        resetHistory: [],
+        resetHistory: [0],
+        highest: null,
+        lowest: null,
+        average: null,
+        fluctuation: null,
+        longestDuration: 0,
         thisWeek: {
           value: action.payload.thisWeek,
           counts: 0,
@@ -61,7 +66,7 @@ export default function handleEvents(state = [], action) {
       const beforeCategory = state[position]
 
       const thisWeek =
-        action.payload.obj.thisWeek.value === moment().format("W")
+        action.payload.obj.thisWeek.value + 1 === moment().format("W")
           ? true
           : false
 
@@ -75,16 +80,38 @@ export default function handleEvents(state = [], action) {
                 thisWeek: {
                   value: moment().format("W"),
                   counts: e.thisWeek.counts + 1,
-                  ratings: e.thisWeek.ratings.concat(action.payload.rating),
+                  ratings: [...e.thisWeek.ratings, action.payload.rating],
                 },
               })
             } else {
+              const timeSince = Date.now() - e.timestamp
+              const duration =
+                timeSince > e.longestDuration ? timeSince : e.longestDuration
+              alert(e.timestamp + " " + Date.now())
+              alert(timeSince)
+              alert(duration)
+
+              const len = e.resetHistory.length - 1
+              const newArray = [...e.resetHistory, e.thisWeek.counts]
+              const average = Math.floor(
+                newArray.reduce((a, b) => a + b) / newArray.length
+              )
+              const variance =
+                ((e.thisWeek.counts - e.resetHistory[len]) /
+                  e.resetHistory[len]) *
+                100
               return Object.assign({}, e, {
                 timestamp: Date.now(),
+                highest: Math.max(...newArray),
+                lowest: Math.min(...newArray),
+                average: average,
+                fluctuation: variance,
+                longestDuration: duration,
                 lastWeek: e.thisWeek,
+                resetHistory: [...e.resetHistory, e.thisWeek.counts],
                 thisWeek: {
                   value: moment().format("w"),
-                  counts: 0,
+                  counts: 1,
                   ratings: [],
                 },
               })

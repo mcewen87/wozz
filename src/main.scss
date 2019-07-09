@@ -54,6 +54,10 @@ h1 {
   box-sizing: border-box;
 }
 
+.white {
+  background-color: $white;
+}
+
 .content {
   width: 550px;
   display: flex;

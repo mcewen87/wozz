@@ -24,6 +24,7 @@ const firstState = [
         less: true,
         more: false,
         resetHistory: [3, 4, 2, 5, 6, 2],
+        longestDuration: 0,
         lastWeek: {},
         thisWeek: {
           value: moment().format("W"),
@@ -40,10 +41,11 @@ const firstState = [
       {
         id: uuid.v4(),
         timestamp: Date.now(),
-        text: "Started bookclub.",
+        text: "Ate Burger",
         less: true,
         more: false,
         resetHistory: [12, 46, 74, 1, 4, 6, 21, 1, 1],
+        longestDuration: 0,
         lastWeek: {},
         thisWeek: {
           value: moment().format("W"),
@@ -60,10 +62,11 @@ const firstState = [
       {
         id: uuid.v4(),
         timestamp: Date.now(),
-        text: "Started bookclub.",
+        text: "No reset history",
         less: true,
         more: false,
-        resetHistory: [],
+        resetHistory: [0],
+        longestDuration: 0,
         lastWeek: {},
         thisWeek: {
           value: moment().format("W"),
@@ -80,10 +83,11 @@ const firstState = [
       {
         id: uuid.v4(),
         timestamp: Date.now(),
-        text: "Started bookclub.",
+        text: "Also no history",
         less: true,
         more: false,
-        resetHistory: [],
+        resetHistory: [0],
+        longestDuration: 0,
         lastWeek: {},
         thisWeek: {
           value: moment().format("W"),

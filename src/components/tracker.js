@@ -43,7 +43,7 @@ class Tracker extends Component {
     this.state = {
       modalIsOpen: false,
       selectedEvent: {},
-      experience: "neutral",
+      experience: "Neutral",
     }
     this.changeCat = this.changeCat.bind(this)
     this.resetEvent = this.resetEvent.bind(this)
@@ -55,8 +55,8 @@ class Tracker extends Component {
     this.closeModal = this.closeModal.bind(this)
   }
 
-  openModal() {
-    this.setState({ modalIsOpen: true })
+  openModal(event) {
+    this.setState({ modalIsOpen: true, selectedEvent: event })
   }
 
   afterOpenModal() {
@@ -68,17 +68,17 @@ class Tracker extends Component {
   }
 
   setRating(value) {
-    this.setState({ rating: value })
+    this.setState({ experience: value })
   }
   changeCat(id) {
     this.props.changeCategory(id)
   }
 
-  resetEvent(event) {
-    this.setState({ modalIsOpen: true, selectedEvent: event })
+  resetEvent() {
+    this.setState({ modalIsOpen: false })
     this.props.resetEvent({
-      obj: event,
-      rating: this.state.rating,
+      obj: this.state.selectedEvent,
+      rating: this.state.experience,
       category: this.props.category,
     })
   }
@@ -100,9 +100,9 @@ class Tracker extends Component {
       const categoryThread = this.props.events.find((c, i) => i === categoryId)
 
       const makeNumbers = () => {
-        let list = ["Positve", "Negative", "Neutral"]
+        let list = ["Positive", "Negative", "Neutral"]
         let numbers = list.map((e, i) => {
-          if (this.state.rating == e) {
+          if (this.state.experience == e) {
             return (
               <div
                 onClick={() => {
@@ -146,7 +146,7 @@ class Tracker extends Component {
               <button
                 className={tracker.trackers}
                 onClick={() => {
-                  this.resetEvent(e)
+                  this.openModal(e)
                 }}
               >
                 Reset
@@ -203,7 +203,7 @@ class Tracker extends Component {
                   <div className={tracker.rankingBox}>{makeNumbers()}</div>
 
                   <div
-                    onClick={this.closeModal}
+                    onClick={this.resetEvent}
                     className={tracker.submitContainer}
                   >
                     <h3 className={tracker.submitText}>Submit</h3>

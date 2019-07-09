@@ -15,7 +15,7 @@ class Add extends Component {
       error: false,
       less: false,
       more: false,
-      experience: null,
+      experience: "Neutral",
     }
     this.handleInput = this.handleInput.bind(this)
     this.handleCheck = this.handleCheck.bind(this)
@@ -35,9 +35,9 @@ class Add extends Component {
   }
 
   handleExp(e) {
-    if (e.target.name === "positive") {
+    if (e.target.name === "Positive") {
       this.setState({ experience: "Positive" })
-    } else if (e.target.name === "negative") {
+    } else if (e.target.name === "Negative") {
       this.setState({ experience: "Negative" })
     } else {
       this.setState({ experience: "Neutral" })
@@ -117,7 +117,7 @@ class Add extends Component {
             <input
               onChange={this.handleExp}
               checked={exp == "Positive"}
-              name="positive"
+              name="Positive"
               type="checkbox"
             ></input>
           </div>
@@ -126,7 +126,7 @@ class Add extends Component {
             <input
               onChange={this.handleExp}
               checked={exp == "Negative"}
-              name="negative"
+              name="Negative"
               type="checkbox"
             ></input>
           </div>
@@ -135,7 +135,7 @@ class Add extends Component {
             <input
               onChange={this.handleExp}
               checked={exp == "Neutral"}
-              name="neautral"
+              name="Neutral"
               type="checkbox"
             ></input>
           </div>
