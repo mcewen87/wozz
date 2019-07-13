@@ -7,7 +7,7 @@ import { resetCategory } from "../actions/resetCategory"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
 import Moment from "react-moment"
-import { Doughnut } from "react-chartjs-2"
+import { Doughnut, Bar } from "react-chartjs-2"
 import { HorizontalBar } from "react-chartjs-2"
 import { Polar } from "react-chartjs-2"
 import { Pie } from "react-chartjs-2"
@@ -27,6 +27,7 @@ class Report extends Component {
           <div className={weekly.section}>
             <h1 className={weekly.categoryName}>{item.id}</h1>
           </div>
+          <hr className={weekly.horizontal}></hr>
           {item.events.map((event, index) => {
             const len = event.resetHistory.length - 1
             const resets = event.resetHistory[len]
@@ -87,7 +88,7 @@ class Report extends Component {
                       <h2 className={weekly.experienceTitle}>Experience:</h2>
                     </div>
                     <div className={weekly.twoSplit}>
-                      <Pie data={data} />
+                      <HorizontalBar data={data} />
                     </div>
                   </div>
                 </div>
@@ -99,9 +100,6 @@ class Report extends Component {
     })
     return (
       <Layout>
-        <div className={weekly.hero}>
-          <h1 className={weekly.heroText}>WEEKLY WRAP UP</h1>
-        </div>
         <div className="container white">{categories}</div>
       </Layout>
     )
