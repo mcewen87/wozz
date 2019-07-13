@@ -27,6 +27,8 @@ const initialState = firstState
 export default function handleEvents(state = [], action) {
   switch (action.type) {
     case ADD_EVENT:
+      const initArray = [0, 0, 0]
+      initArray[action.payload.experience] = 1
       const newEvent = {
         id: uuid.v4(),
         timestamp: Date.now(),
@@ -42,7 +44,7 @@ export default function handleEvents(state = [], action) {
         thisWeek: {
           value: action.payload.thisWeek,
           counts: 0,
-          ratings: [action.payload.experience],
+          ratings: initArray,
         },
         lastWeek: {},
       }
@@ -66,7 +68,7 @@ export default function handleEvents(state = [], action) {
       const beforeCategory = state[position]
 
       const thisWeek =
-        action.payload.obj.thisWeek.value + 1 === moment().format("W")
+        action.payload.obj.thisWeek.value === moment().format("W")
           ? true
           : false
 
@@ -80,16 +82,19 @@ export default function handleEvents(state = [], action) {
                 thisWeek: {
                   value: moment().format("W"),
                   counts: e.thisWeek.counts + 1,
-                  ratings: [...e.thisWeek.ratings, action.payload.rating],
+                  ratings: e.thisWeek.ratings.map((e, i) => {
+                    if (i === action.payload.rating) {
+                      return e + 1
+                    } else {
+                      return e
+                    }
+                  }),
                 },
               })
             } else {
               const timeSince = Date.now() - e.timestamp
               const duration =
                 timeSince > e.longestDuration ? timeSince : e.longestDuration
-              alert(e.timestamp + " " + Date.now())
-              alert(timeSince)
-              alert(duration)
 
               const len = e.resetHistory.length - 1
               const newArray = [...e.resetHistory, e.thisWeek.counts]

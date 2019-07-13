@@ -43,7 +43,7 @@ class Tracker extends Component {
     this.state = {
       modalIsOpen: false,
       selectedEvent: {},
-      experience: "Neutral",
+      experience: 2,
     }
     this.changeCat = this.changeCat.bind(this)
     this.resetEvent = this.resetEvent.bind(this)
@@ -102,11 +102,11 @@ class Tracker extends Component {
       const makeNumbers = () => {
         let list = ["Positive", "Negative", "Neutral"]
         let numbers = list.map((e, i) => {
-          if (this.state.experience == e) {
+          if (this.state.experience == i) {
             return (
               <div
                 onClick={() => {
-                  this.setRating(e)
+                  this.setRating(i)
                 }}
                 className={tracker.numTileSelected}
               >
@@ -117,7 +117,7 @@ class Tracker extends Component {
             return (
               <div
                 onClick={() => {
-                  this.setRating(e)
+                  this.setRating(i)
                 }}
                 className={tracker.numTile}
               >
