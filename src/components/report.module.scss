@@ -74,7 +74,7 @@
   border-radius: 0px 0px 10px 10px;
   background-color: $white;
 
-  margin: 0px auto 10px auto;
+  margin: 0px auto 0px auto;
   z-index: 1;
 }
 
@@ -84,9 +84,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: $white;
+  background-color: $darkWhite;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
 }
 
 .experience {
@@ -101,12 +101,13 @@
 .experienceTitle {
   font-family: $content;
   align-self: center;
-  color: $black;
-  font-size: 2rem;
+  color: $blue;
+  font-size: 1.5rem;
 }
 
 .eventName {
-  font-family: $content;
+  font-family: $titles;
+  font-size: 2rem;
   color: $white;
   align-self: center;
   margin-right: 20px;
@@ -115,7 +116,7 @@
 .topGrid {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
   gap: 10px;
 }
 
