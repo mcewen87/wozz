@@ -79,16 +79,12 @@ class Report extends Component {
                           Longest Duration Between Resets
                         </h4>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div className={weekly.eventBody}>
-                  <div className={weekly.gridNoGap}>
-                    <div className={weekly.experience}>
-                      <h2 className={weekly.experienceTitle}>Experience:</h2>
-                    </div>
-                    <div className={weekly.twoSplit}>
-                      <HorizontalBar data={data} />
+                      <div className={weekly.tileData}>
+                        <div className={weekly.tileHeader}>
+                          <h3 className={weekly.experienceText}>Experience</h3>
+                        </div>
+                        <HorizontalBar data={data} />
+                      </div>
                     </div>
                   </div>
                 </div>
