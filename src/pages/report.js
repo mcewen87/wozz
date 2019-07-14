@@ -7,7 +7,7 @@ import { resetCategory } from "../actions/resetCategory"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
 import Moment from "react-moment"
-import { Doughnut, Bar } from "react-chartjs-2"
+import { Doughnut, Bar, Line } from "react-chartjs-2"
 import { HorizontalBar } from "react-chartjs-2"
 import { Polar } from "react-chartjs-2"
 import { Pie } from "react-chartjs-2"
@@ -34,12 +34,24 @@ class Report extends Component {
 
             const array = event.lastWeek.ratings
 
-            const data = {
+            const dataExperience = {
               labels: ["Positive", "Negative", "Neutral"],
               datasets: [
                 {
                   label: "Weekly Wrap Up",
                   data: array,
+                  borderColor: "#ffffff",
+                  backgroundColor: ["#247ba0", "#f25f5c", "#ffe066"],
+                  hoverBackgroundColor: ["#ffffff", "#ffffff", "#ffffff"],
+                },
+              ],
+            }
+            const dataNumbers = {
+              labels: ["Highest", "Average", "Lowest"],
+              datasets: [
+                {
+                  label: "Weekly Wrap Up",
+                  data: [event.highest, event.average, event.lowest],
                   borderColor: "#ffffff",
                   backgroundColor: ["#247ba0", "#f25f5c", "#ffe066"],
                   hoverBackgroundColor: ["#ffffff", "#ffffff", "#ffffff"],
@@ -61,9 +73,16 @@ class Report extends Component {
                       </div>
                       <div className={weekly.tile}>
                         <div className={weekly.row}>
-                          <h3 className={weekly.tileFontLarge}>
-                            {event.fluctuation}%
-                          </h3>
+                          {Number.isNaN(event.fluctuation) && (
+                            <h3 className={weekly.tileFontLarge}>
+                              You did Nothing.
+                            </h3>
+                          )}
+                          {!Number.isNaN(event.fluctuation) && (
+                            <h3 className={weekly.tileFontLarge}>
+                              {event.fluctuation}%
+                            </h3>
+                          )}
                         </div>
                         <h4 className={weekly.tileFontSmall}>
                           Increase from Last Active Week
@@ -81,9 +100,19 @@ class Report extends Component {
                       </div>
                       <div className={weekly.tileData}>
                         <div className={weekly.tileHeader}>
-                          <h3 className={weekly.experienceText}>Experience</h3>
+                          <h3 className={weekly.experienceText}>
+                            Experience Report
+                          </h3>
                         </div>
-                        <HorizontalBar data={data} />
+                        <HorizontalBar data={dataExperience} />
+                      </div>
+                      <div className={weekly.tileData}>
+                        <div className={weekly.tileHeader}>
+                          <h3 className={weekly.experienceText}>
+                            All Time Reset History
+                          </h3>
+                        </div>
+                        <Line data={dataNumbers} />
                       </div>
                     </div>
                   </div>

@@ -23,6 +23,10 @@ const firstState = [
         text: "Started bookclub.",
         less: true,
         more: false,
+        fluctuation: NaN,
+        highest: 10,
+        lowest: 5,
+        average: 3,
         resetHistory: [3, 4, 2, 5, 6, 2],
         longestDuration: 0,
         lastWeek: {
@@ -48,6 +52,10 @@ const firstState = [
         text: "Ate Burger",
         less: true,
         more: false,
+        fluctuation: 1,
+        highest: 10,
+        lowest: 5,
+        average: 3,
         resetHistory: [12, 46, 74, 1, 4, 6, 21, 1, 1],
         longestDuration: 0,
         lastWeek: {
@@ -74,6 +82,10 @@ const firstState = [
         less: true,
         more: false,
         resetHistory: [0],
+        fluctuation: 19,
+        highest: 10,
+        lowest: 5,
+        average: 3,
         longestDuration: 0,
         lastWeek: {
           value: moment().format("W"),
@@ -99,6 +111,10 @@ const firstState = [
         less: true,
         more: false,
         resetHistory: [0],
+        fluctuation: 34,
+        highest: 10,
+        lowest: 5,
+        average: 3,
         longestDuration: 0,
         lastWeek: {
           value: moment().format("W"),
