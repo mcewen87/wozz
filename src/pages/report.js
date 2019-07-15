@@ -6,6 +6,9 @@ import { deleteEvent } from "../actions/deleteEvent"
 import { resetCategory } from "../actions/resetCategory"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
+import { faStar } from "@fortawesome/free-solid-svg-icons"
+
+import { faThumbsUp } from "@fortawesome/free-solid-svg-icons"
 import Moment from "react-moment"
 import { Doughnut, Bar, Line } from "react-chartjs-2"
 import { HorizontalBar } from "react-chartjs-2"
@@ -62,9 +65,37 @@ class Report extends Component {
             return (
               <div className={weekly.eventContainer}>
                 <div className={weekly.eventHeader}>
-                  <h2 className={weekly.eventName}>{event.text}</h2>
+                  <h2 className={weekly.eventName}>
+                    <FontAwesomeIcon icon={faStar} className={weekly.star} />
+                    {event.text}
+                  </h2>
+
                   <div className={weekly.row}>
                     <div className={weekly.topGrid}>
+                      {event.less && event.lowest > resets && (
+                        <div className={weekly.tileCongrats}>
+                          <FontAwesomeIcon
+                            className={weekly.thumbsUp}
+                            icon={faThumbsUp}
+                          />{" "}
+                          <h4 className={weekly.tileFontSmall}>
+                            You set an all time low frequency record! Keep up
+                            the good work!
+                          </h4>
+                        </div>
+                      )}
+                      {event.more && event.highest < resets && (
+                        <div className={weekly.tileCongrats}>
+                          <FontAwesomeIcon
+                            className={weekly.thumbsUp}
+                            icon={faThumbsUp}
+                          />{" "}
+                          <h4 className={weekly.tileFontSmall}>
+                            You set an all time high frequency record! Keep up
+                            the good work!
+                          </h4>
+                        </div>
+                      )}
                       <div className={weekly.tile}>
                         <h3 className={weekly.tileFontLarge}>{resets}</h3>
                         <h4 className={weekly.tileFontSmall}>
@@ -73,16 +104,9 @@ class Report extends Component {
                       </div>
                       <div className={weekly.tile}>
                         <div className={weekly.row}>
-                          {Number.isNaN(event.fluctuation) && (
-                            <h3 className={weekly.tileFontLarge}>
-                              You did Nothing.
-                            </h3>
-                          )}
-                          {!Number.isNaN(event.fluctuation) && (
-                            <h3 className={weekly.tileFontLarge}>
-                              {event.fluctuation}%
-                            </h3>
-                          )}
+                          <h3 className={weekly.tileFontLarge}>
+                            {event.fluctuation}%
+                          </h3>
                         </div>
                         <h4 className={weekly.tileFontSmall}>
                           Increase from Last Active Week

@@ -139,7 +139,7 @@ class Tracker extends Component {
 
             <div className={tracker.row}>
               <h2 className={tracker.reset}>
-                Reset <span>{e.thisWeek.counts}</span> times this week.
+                Weekly Count: {e.thisWeek.counts}
               </h2>
             </div>
             <div className={tracker.buttonBar}>
@@ -171,10 +171,8 @@ class Tracker extends Component {
         const style = index === i ? tracker.innerSelected : tracker.innerBlock
 
         return (
-          <div onClick={() => this.changeCat(i)} className={tracker.block}>
-            <div className={style}>
-              <h3 className={tracker.blockTitle}>{c.id}</h3>
-            </div>
+          <div onClick={() => this.changeCat(i)} className={style}>
+            <h3 className={tracker.blockTitle}>{c.id}</h3>
           </div>
         )
       })

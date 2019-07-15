@@ -92,52 +92,54 @@ class Add extends Component {
         </div>
         <div className={add.checkHolder}>
           <div className={add.frequencyBox}>
-            <p className={add.freq}>Do Less:</p>
+            <p className={add.freq}>I want to do this: </p>
             <input
               onChange={this.handleCheck}
               checked={doLess}
               name="less"
               type="checkbox"
             ></input>
+            <p className={add.freq}>Less</p>
           </div>
           <div className={add.frequencyBox}>
-            <p className={add.freq}>Do More:</p>
             <input
               onChange={this.handleCheck}
               checked={doMore}
               name="more"
               type="checkbox"
             ></input>
+            <p className={add.freq}>More</p>
           </div>
           {this.state.error && <p className={add.error}>¯\_(ツ)_/¯ Oops...</p>}
         </div>
         <div className={add.checkHolderTwo}>
           <div className={add.frequencyBox}>
-            <p className={add.freq}>Positive:</p>
+            <p className={add.freq}>My experience was:</p>
             <input
               onChange={this.handleExp}
               checked={exp == 0}
               name="Positive"
               type="checkbox"
             ></input>
+            <p className={add.freq}>Positive</p>
           </div>
           <div className={add.frequencyBox}>
-            <p className={add.freq}>Negative:</p>
             <input
               onChange={this.handleExp}
               checked={exp == 1}
               name="Negative"
               type="checkbox"
             ></input>
+            <p className={add.freq}>Negative</p>
           </div>
           <div className={add.frequencyBox}>
-            <p className={add.freq}>Neutral:</p>
             <input
               onChange={this.handleExp}
               checked={exp == 2}
               name="Neutral"
               type="checkbox"
             ></input>
+            <p className={add.freq}>Neutral</p>
           </div>
         </div>
       </div>
