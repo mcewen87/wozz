@@ -64,83 +64,102 @@ class Report extends Component {
 
             return (
               <div className={weekly.eventContainer}>
-                <div className={weekly.eventHeader}>
-                  <h2 className={weekly.eventName}>
-                    <FontAwesomeIcon icon={faStar} className={weekly.star} />
-                    {event.text}
-                  </h2>
+                {event.resetHistory.length > 2 && (
+                  <div className={weekly.eventHeader}>
+                    <h2 className={weekly.eventName}>
+                      <FontAwesomeIcon icon={faStar} className={weekly.star} />
+                      {event.text}
+                    </h2>
 
-                  <div className={weekly.row}>
-                    <div className={weekly.topGrid}>
-                      {event.less && event.lowest > resets && (
-                        <div className={weekly.tileCongrats}>
-                          <FontAwesomeIcon
-                            className={weekly.thumbsUp}
-                            icon={faThumbsUp}
-                          />{" "}
+                    <div className={weekly.row}>
+                      <div className={weekly.topGrid}>
+                        {event.less && event.lowest > resets && (
+                          <div className={weekly.tileCongrats}>
+                            <FontAwesomeIcon
+                              className={weekly.thumbsUp}
+                              icon={faThumbsUp}
+                            />{" "}
+                            <h4 className={weekly.tileFontSmall}>
+                              You set an all time low frequency record! Keep up
+                              the good work!
+                            </h4>
+                          </div>
+                        )}
+                        {event.more && event.highest < resets && (
+                          <div className={weekly.tileCongrats}>
+                            <FontAwesomeIcon
+                              className={weekly.thumbsUp}
+                              icon={faThumbsUp}
+                            />{" "}
+                            <h4 className={weekly.tileFontSmall}>
+                              You set an all time high frequency record! Keep up
+                              the good work!
+                            </h4>
+                          </div>
+                        )}
+                        <div className={weekly.tile}>
+                          <h3 className={weekly.tileFontLarge}>{resets}</h3>
                           <h4 className={weekly.tileFontSmall}>
-                            You set an all time low frequency record! Keep up
-                            the good work!
+                            Total Weekly Count
                           </h4>
                         </div>
-                      )}
-                      {event.more && event.highest < resets && (
-                        <div className={weekly.tileCongrats}>
-                          <FontAwesomeIcon
-                            className={weekly.thumbsUp}
-                            icon={faThumbsUp}
-                          />{" "}
-                          <h4 className={weekly.tileFontSmall}>
-                            You set an all time high frequency record! Keep up
-                            the good work!
-                          </h4>
-                        </div>
-                      )}
-                      <div className={weekly.tile}>
-                        <h3 className={weekly.tileFontLarge}>{resets}</h3>
-                        <h4 className={weekly.tileFontSmall}>
-                          Total Number of Weekly Resets
-                        </h4>
-                      </div>
-                      <div className={weekly.tile}>
-                        <div className={weekly.row}>
+
+                        {Math.sign(event.fluctuation) == -1 && (
+                          <div className={weekly.tile}>
+                            <div className={weekly.row}>
+                              <h3 className={weekly.tileFontLarge}>
+                                {Math.abs(event.fluctuation)}%
+                              </h3>
+                            </div>
+                            <h4 className={weekly.tileFontSmall}>
+                              Decrease from Last Active Week
+                            </h4>
+                          </div>
+                        )}
+
+                        {Math.sign(event.fluctuation) == 1 && (
+                          <div className={weekly.tile}>
+                            <div className={weekly.row}>
+                              <h3 className={weekly.tileFontLarge}>
+                                {event.fluctuation}%
+                              </h3>
+                            </div>
+                            <h4 className={weekly.tileFontSmall}>
+                              Increase from Last Active Week
+                            </h4>
+                          </div>
+                        )}
+
+                        <div className={weekly.tile}>
                           <h3 className={weekly.tileFontLarge}>
-                            {event.fluctuation}%
+                            <Moment interval={0} fromNow ago>
+                              {Date.now() - event.longestDuration}
+                            </Moment>
                           </h3>
+                          <h4 className={weekly.tileFontSmall}>
+                            Longest Duration Between Resets
+                          </h4>
                         </div>
-                        <h4 className={weekly.tileFontSmall}>
-                          Increase from Last Active Week
-                        </h4>
-                      </div>
-                      <div className={weekly.tile}>
-                        <h3 className={weekly.tileFontLarge}>
-                          <Moment interval={0} fromNow ago>
-                            {Date.now() - event.longestDuration}
-                          </Moment>
-                        </h3>
-                        <h4 className={weekly.tileFontSmall}>
-                          Longest Duration Between Resets
-                        </h4>
-                      </div>
-                      <div className={weekly.tileData}>
-                        <div className={weekly.tileHeader}>
-                          <h3 className={weekly.experienceText}>
-                            Experience Report
-                          </h3>
+                        <div className={weekly.tileData}>
+                          <div className={weekly.tileHeader}>
+                            <h3 className={weekly.experienceText}>
+                              Experience Report
+                            </h3>
+                          </div>
+                          <HorizontalBar data={dataExperience} />
                         </div>
-                        <HorizontalBar data={dataExperience} />
-                      </div>
-                      <div className={weekly.tileData}>
-                        <div className={weekly.tileHeader}>
-                          <h3 className={weekly.experienceText}>
-                            All Time Reset History
-                          </h3>
+                        <div className={weekly.tileData}>
+                          <div className={weekly.tileHeader}>
+                            <h3 className={weekly.experienceText}>
+                              All Time Reset History
+                            </h3>
+                          </div>
+                          <Line data={dataNumbers} />
                         </div>
-                        <Line data={dataNumbers} />
                       </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             )
           })}{" "}

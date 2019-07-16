@@ -35,7 +35,7 @@ export default function handleEvents(state = [], action) {
         text: action.payload.entry,
         less: action.payload.less,
         more: action.payload.more,
-        resetHistory: [0],
+        resetHistory: [],
         highest: null,
         lowest: null,
         average: null,
