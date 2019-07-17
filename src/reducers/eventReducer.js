@@ -68,7 +68,7 @@ export default function handleEvents(state = [], action) {
       const beforeCategory = state[position]
 
       const thisWeek =
-        action.payload.obj.thisWeek.value + 1 === moment().format("W")
+        action.payload.obj.thisWeek.value === moment().format("W")
           ? true
           : false
 

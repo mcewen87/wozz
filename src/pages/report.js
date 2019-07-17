@@ -64,7 +64,7 @@ class Report extends Component {
 
             return (
               <div className={weekly.eventContainer}>
-                {event.resetHistory.length > 2 && (
+                {event.resetHistory.length >= 2 && (
                   <div className={weekly.eventHeader}>
                     <h2 className={weekly.eventName}>
                       <FontAwesomeIcon icon={faStar} className={weekly.star} />
