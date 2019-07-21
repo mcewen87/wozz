@@ -15,9 +15,9 @@ const Header = () => (
         <Link className={header.link} to="/">
           Wozz
         </Link>
-        <Link className={header.link} to="/donate">
+        {/* <Link className={header.link} to="/donate">
           Blog
-        </Link>
+        </Link> */}
         <Link className={header.link} to="/donate">
           Donate
         </Link>

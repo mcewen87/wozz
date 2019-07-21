@@ -96,6 +96,11 @@ h1 {
   background-color: $red;
 }
 
+.donation {
+  color: $white;
+  margin: 10px;
+}
+
 @media screen and (max-width: 600px) {
   .content {
     width: 90%;

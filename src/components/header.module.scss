@@ -3,6 +3,8 @@
 .nav {
   width: 100%;
   display: flex;
+  box-sizing: border-box;
+  padding: 0px 10px;
   flex-direction: row;
   box-sizing: border-box;
   justify-content: space-between;

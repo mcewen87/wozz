@@ -91,8 +91,8 @@ class Add extends Component {
           />
         </div>
         <div className={add.checkHolder}>
+          <p className={add.freq}>I want to do this: </p>
           <div className={add.frequencyBox}>
-            <p className={add.freq}>I want to do this: </p>
             <input
               onChange={this.handleCheck}
               checked={doLess}
@@ -113,8 +113,8 @@ class Add extends Component {
           {this.state.error && <p className={add.error}>¯\_(ツ)_/¯ Oops...</p>}
         </div>
         <div className={add.checkHolderTwo}>
+          <p className={add.freq}>My experience was:</p>
           <div className={add.frequencyBox}>
-            <p className={add.freq}>My experience was:</p>
             <input
               onChange={this.handleExp}
               checked={exp == 0}

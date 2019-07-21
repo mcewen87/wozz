@@ -83,10 +83,12 @@ class Tracker extends Component {
     })
   }
   deleteEvent(index) {
-    this.props.deleteEvent({
-      index: index,
-      category: this.props.category,
-    })
+    if (window.confirm("Are you sure you want to delete this event?")) {
+      this.props.deleteEvent({
+        index: index,
+        category: this.props.category,
+      })
+    }
   }
 
   render() {
@@ -139,7 +141,8 @@ class Tracker extends Component {
 
             <div className={tracker.row}>
               <h2 className={tracker.reset}>
-                Weekly Count: {e.thisWeek.counts}
+                Weekly Count:{" "}
+                <span className={tracker.countSpan}>{e.thisWeek.counts}</span>
               </h2>
             </div>
             <div className={tracker.buttonBar}>

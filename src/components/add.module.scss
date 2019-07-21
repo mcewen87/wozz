@@ -15,6 +15,7 @@
 
 .checkHolder {
   display: flex;
+  // flex-direction: column;
   margin: 15px 0px 3px 10px;
   padding-top: 8px;
   border-top: 2px dotted $blue;
@@ -22,7 +23,16 @@
 
 .checkHolderTwo {
   display: flex;
+  flex-direction: column;
   margin: 0px 0px 5px 10px;
+}
+
+.freq {
+  font-size: 0.8rem;
+}
+
+.frequencyBox {
+  display: flex;
 }
 
 .rating {
@@ -39,15 +49,6 @@ input[type="checkbox"] {
   align-self: center;
   cursor: pointer;
   margin: 0px 5px;
-}
-
-.freq {
-  font-size: 0.7rem;
-  margin: auto;
-}
-
-.frequencyBox {
-  display: flex;
 }
 
 .error {

@@ -26,6 +26,7 @@ class CategorySelect extends Component {
     const colourOptions = [
       { value: "Lifestyle", label: "Lifestyle" },
       { value: "Productivity", label: "Productivity" },
+      { value: "Work", label: "Work" },
       { value: "Finance", label: "Finance" },
       { value: "Mental", label: "Mental" },
       { value: "Diet", label: "Diet" },

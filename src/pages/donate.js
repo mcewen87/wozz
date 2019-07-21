@@ -15,9 +15,8 @@ const SecondPage = () => (
         <div className="verticalCenter">
           <h1>Thank you so much..</h1>
           <p className="donation">
-            Donations help us maintain Wozz and continue adding awesome
-            features. Let's build something tremendous together. Click the
-            donate button below to use the PayPal portal to send us some love.
+            Wozz is in beta at the moment. Donations help us add features more
+            quickly.
           </p>
           <form
             action="https://www.paypal.com/cgi-bin/webscr"

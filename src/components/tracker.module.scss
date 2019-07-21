@@ -100,22 +100,22 @@
 }
 
 .eventName {
-  font-family: $content;
-  color: $fontBlack;
+  font-family: $titles;
+  color: $black;
   margin: 0px 0px 10px 0px;
   font-size: 1.4rem;
 }
 
 .since {
-  color: $blue;
+  color: $black;
   margin: 0px;
 }
 
 .reset {
   font-family: $content;
-  font-size: 1rem;
+  font-size: 1.3rem;
   margin: 10px 0px;
-  color: $black;
+  color: $red;
 }
 
 button {
