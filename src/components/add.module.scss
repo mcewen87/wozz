@@ -28,7 +28,15 @@
 }
 
 .freq {
+  font-family: $titles;
+  font-size: 0.9rem;
+  color: $black;
+}
+
+.freqOpt {
   font-size: 0.8rem;
+  color: $black;
+  margin: auto 0px;
 }
 
 .frequencyBox {

@@ -99,7 +99,7 @@ class Add extends Component {
               name="less"
               type="checkbox"
             ></input>
-            <p className={add.freq}>Less</p>
+            <p className={add.freqOpt}>Less</p>
           </div>
           <div className={add.frequencyBox}>
             <input
@@ -108,7 +108,7 @@ class Add extends Component {
               name="more"
               type="checkbox"
             ></input>
-            <p className={add.freq}>More</p>
+            <p className={add.freqOpt}>More</p>
           </div>
           {this.state.error && <p className={add.error}>¯\_(ツ)_/¯ Oops...</p>}
         </div>
@@ -121,7 +121,7 @@ class Add extends Component {
               name="Positive"
               type="checkbox"
             ></input>
-            <p className={add.freq}>Positive</p>
+            <p className={add.freqOpt}>Positive</p>
           </div>
           <div className={add.frequencyBox}>
             <input
@@ -130,7 +130,7 @@ class Add extends Component {
               name="Negative"
               type="checkbox"
             ></input>
-            <p className={add.freq}>Negative</p>
+            <p className={add.freqOpt}>Negative</p>
           </div>
           <div className={add.frequencyBox}>
             <input
@@ -139,7 +139,7 @@ class Add extends Component {
               name="Neutral"
               type="checkbox"
             ></input>
-            <p className={add.freq}>Neutral</p>
+            <p className={add.freqOpt}>Neutral</p>
           </div>
         </div>
       </div>
