@@ -159,6 +159,12 @@
   text-align: center;
 }
 
+.gatheringData {
+  align-self: center;
+  font-family: $content;
+  color: $white;
+}
+
 .arrowUp {
   color: $green;
   font-size: 20px;
@@ -251,4 +257,144 @@
     border-radius: 5px;
     font-size: 2rem;
   }
+}
+
+//PAC MAN ANIMATION
+
+@keyframes ldsPacman1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+@-webkit-keyframes ldsPacman1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+@keyframes ldsPacman2 {
+  0% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  50% {
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+@-webkit-keyframes ldsPacman2 {
+  0% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  50% {
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+@keyframes ldsPacman3 {
+  0% {
+    -webkit-transform: translate(190px, 0);
+    transform: translate(190px, 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(70px, 0);
+    transform: translate(70px, 0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes ldsPacman3 {
+  0% {
+    -webkit-transform: translate(190px, 0);
+    transform: translate(190px, 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(70px, 0);
+    transform: translate(70px, 0);
+    opacity: 1;
+  }
+}
+.ldsPacman {
+  position: relative;
+  align-self: center;
+}
+.ldsPacman > div:nth-child(2) div {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 120px;
+  height: 60px;
+  border-radius: 120px 120px 0 0;
+  background: $blue;
+  -webkit-animation: ldsPacman1 1s linear infinite;
+  animation: ldsPacman1 1s linear infinite;
+  -webkit-transform-origin: 60px 60px;
+  transform-origin: 60px 60px;
+}
+.ldsPacman > div:nth-child(2) div:nth-child(2) {
+  -webkit-animation: ldsPacman2 1s linear infinite;
+  animation: ldsPacman2 1s linear infinite;
+}
+.ldsPacman > div:nth-child(1) div {
+  position: absolute;
+  top: 92px;
+  left: -8px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffe066;
+  -webkit-animation: ldsPacman3 1s linear infinite;
+  animation: ldsPacman3 1s linear infinite;
+}
+.ldsPacman > div:nth-child(1) div:nth-child(1) {
+  -webkit-animation-delay: -0.67s;
+  animation-delay: -0.67s;
+}
+.ldsPacman > div:nth-child(1) div:nth-child(2) {
+  -webkit-animation-delay: -0.33s;
+  animation-delay: -0.33s;
+}
+.ldsPacman > div:nth-child(1) div:nth-child(3) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.ldsPacman {
+  width: 109px !important;
+  height: 109px !important;
+  -webkit-transform: translate(-54.5px, -54.5px) scale(0.545)
+    translate(54.5px, 54.5px);
+  transform: translate(-54.5px, -54.5px) scale(0.545) translate(54.5px, 54.5px);
 }

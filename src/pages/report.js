@@ -160,6 +160,52 @@ class Report extends Component {
                     </div>
                   </div>
                 )}
+                {event.resetHistory.length == 0 && (
+                  <div className={weekly.eventHeader}>
+                    <h2 className={weekly.eventName}>
+                      <FontAwesomeIcon icon={faStar} className={weekly.star} />
+                      {event.text}
+                    </h2>
+                    <div className={weekly.ldsPacman}>
+                      <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                    </div>
+                    <p className={weekly.gatheringData}>
+                      Wozz is still gathering data on this entry. Keep it active
+                      and check back in two weeks.
+                    </p>
+                  </div>
+                )}
+                {event.resetHistory.length == 1 && (
+                  <div className={weekly.eventHeader}>
+                    <h2 className={weekly.eventName}>
+                      <FontAwesomeIcon icon={faStar} className={weekly.star} />
+                      {event.text}
+                    </h2>
+                    <div className={weekly.ldsPacman}>
+                      <div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                      <div>
+                        <div></div>
+                        <div></div>
+                      </div>
+                    </div>
+                    <p className={weekly.gatheringData}>
+                      Wozz is still gathering data on this entry. Keep it active
+                      and check back in one week.
+                    </p>
+                  </div>
+                )}
               </div>
             )
           })}{" "}
