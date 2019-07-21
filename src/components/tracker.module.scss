@@ -86,6 +86,7 @@
 
 .buttonBar {
   align-self: flex-end;
+  margin: 10px 0px 0px 0px;
 }
 
 .trackers {
@@ -105,17 +106,33 @@
   margin: 0px 0px 10px 0px;
   font-size: 1.4rem;
 }
+.dataRow {
+  box-sizing: border-box;
+  background-color: #f5f4f3;
+  padding: 5px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
 
+.dataRow:nth-child(odd) {
+  background-color: #dddbdb;
+}
 .since {
-  color: $black;
+  color: $red;
+  align-self: center;
   margin: 0px;
+  font-family: $titles;
+  font-size: 1rem;
 }
 
 .reset {
-  font-family: $content;
-  font-size: 1.3rem;
-  margin: 10px 0px;
-  color: $red;
+  font-family: $titles;
+  font-size: 1rem;
+  align-self: center;
+  margin: 0px;
+  color: $blue;
 }
 
 button {
@@ -124,7 +141,7 @@ button {
   border: none;
   padding: 10px;
   font-size: 1rem;
-  margin-right: 10px;
+  margin-left: 10px;
   border-radius: 3px;
 }
 

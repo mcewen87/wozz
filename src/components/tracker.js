@@ -135,16 +135,24 @@ class Tracker extends Component {
         return (
           <div key={index} className={tracker.card}>
             <h3 className={tracker.eventName}>{e.text}</h3>
-            <h3 className={tracker.since}>
-              <Moment fromNow>{e.timestamp}</Moment>
-            </h3>
-
-            <div className={tracker.row}>
-              <h2 className={tracker.reset}>
-                Weekly Count:{" "}
-                <span className={tracker.countSpan}>{e.thisWeek.counts}</span>
-              </h2>
+            <div className={tracker.dataRow}>
+              <h2 className={tracker.reset}>Frequency Preference: </h2>
+              {e.less && <h3 className={tracker.since}>Less</h3>}
+              {e.more && <h3 className={tracker.since}>More</h3>}
+              {!e.less && !e.more && <h3 className={tracker.since}>None</h3>}
             </div>
+            <div className={tracker.dataRow}>
+              <h2 className={tracker.reset}>Last Occurrence: </h2>
+              <h3 className={tracker.since}>
+                <Moment fromNow>{e.timestamp}</Moment>
+              </h3>
+            </div>
+            <div className={tracker.dataRow}>
+              {" "}
+              <h2 className={tracker.reset}>Weekly Count: </h2>{" "}
+              <h3 className={tracker.since}>{e.thisWeek.counts}</h3>
+            </div>
+
             <div className={tracker.buttonBar}>
               <button
                 className={tracker.trackers}
