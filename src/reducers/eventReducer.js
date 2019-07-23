@@ -93,7 +93,7 @@ export default function handleEvents(state = [], action) {
                     }
                   }),
                   notes: [
-                    ...e.thisWeek.notes,
+                    ...(e.thisWeek.notes || []),
                     { time: resetTime, content: action.payload.note },
                   ],
                 },
