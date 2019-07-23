@@ -19,7 +19,6 @@ class Notes extends Component {
         <Moment className={noteStyles.timeStamp} format="D MMM YYYY" withTitle>
           {e.time}
         </Moment>
-
         <p className={noteStyles.contentStamp}>{e.content}</p>
       </div>
     ))
@@ -28,7 +27,7 @@ class Notes extends Component {
       <Layout>
         <div className="container">
           <div className="content">
-            <div className={noteStyles.box}>{noteTiles}</div>
+            <div className={noteStyles.box}> {noteTiles}</div>
           </div>
         </div>
       </Layout>
