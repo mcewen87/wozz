@@ -30,11 +30,11 @@ const customStyles = {
     marginRight: "-50%",
     height: "100vh",
     transform: "translate(-50%, -50%)",
-    backgroundColor: "#70C1B3",
+    backgroundColor: "##ffffff",
   },
   overlay: {
     zIndex: 1000,
-    backgroundColor: "#70C1B3",
+    backgroundColor: "##ffffff",
   },
 }
 
@@ -45,6 +45,7 @@ class Tracker extends Component {
       modalIsOpen: false,
       selectedEvent: {},
       experience: 2,
+      note: "",
     }
     this.changeCat = this.changeCat.bind(this)
     this.resetEvent = this.resetEvent.bind(this)
@@ -54,6 +55,11 @@ class Tracker extends Component {
     this.openModal = this.openModal.bind(this)
     this.afterOpenModal = this.afterOpenModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
+    this.handleInput = this.handleInput.bind(this)
+  }
+
+  handleInput(e) {
+    this.setState({ [e.target.name]: e.target.value, error: false })
   }
 
   openModal(event) {
@@ -79,6 +85,7 @@ class Tracker extends Component {
     this.setState({ modalIsOpen: false })
     this.props.resetEvent({
       obj: this.state.selectedEvent,
+      note: this.state.note,
       rating: this.state.experience,
       category: this.props.category,
     })
@@ -225,8 +232,26 @@ class Tracker extends Component {
                 contentLabel="Example Modal"
               >
                 <div className="content">
+                  <h3 className={tracker.question}>
+                    How would you rank your experience?
+                  </h3>
                   <div className={tracker.rankingBox}>{makeNumbers()}</div>
+                  <h3 className={tracker.question}>Add an optional note:</h3>
+                  <textarea
+                    placeholder="350 characters or less.."
+                    onChange={this.handleInput}
+                    type="text"
+                    name="note"
+                    value={this.state.note}
+                    className={tracker.inputSmall}
+                  />
 
+                  <div
+                    onClick={this.closeModal}
+                    className={tracker.cancelContainer}
+                  >
+                    <h3 className={tracker.submitText}>Cancel</h3>
+                  </div>
                   <div
                     onClick={this.resetEvent}
                     className={tracker.submitContainer}

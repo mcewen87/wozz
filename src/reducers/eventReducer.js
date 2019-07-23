@@ -68,6 +68,7 @@ export default function handleEvents(state = [], action) {
     case RESET_EVENT:
       const position = action.payload.category
       const beforeCategory = state[position]
+      const resetTime = Date.now()
 
       const thisWeek =
         action.payload.obj.thisWeek.value === moment().format("W")
@@ -80,7 +81,7 @@ export default function handleEvents(state = [], action) {
           if (e.id === action.payload.obj.id) {
             if (thisWeek) {
               return Object.assign({}, e, {
-                timestamp: Date.now(),
+                timestamp: resetTime,
                 thisWeek: {
                   value: moment().format("W"),
                   counts: e.thisWeek.counts + 1,
@@ -91,6 +92,10 @@ export default function handleEvents(state = [], action) {
                       return e
                     }
                   }),
+                  notes: [
+                    ...e.thisWeek.notes,
+                    { time: resetTime, content: action.payload.note },
+                  ],
                 },
               })
             } else {
@@ -120,6 +125,7 @@ export default function handleEvents(state = [], action) {
                   value: moment().format("w"),
                   counts: 1,
                   ratings: [],
+                  notes: [{ time: resetTime, content: action.payload.note }],
                 },
               })
             }
