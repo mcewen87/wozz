@@ -7,13 +7,10 @@ class Notes extends Component {
   constructor() {
     super()
     this.state = {
-      notes: null,
+      notes: [],
     }
   }
-  componentWillMount() {
-    if (typeof window === "undefined") {
-      return
-    }
+  componentDidMount() {
     this.setState({ notes: this.props.location.state.notes })
   }
   render() {
