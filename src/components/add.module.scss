@@ -43,6 +43,19 @@
   display: flex;
 }
 
+.blue {
+  position: relative;
+  font-family: $content;
+  font-size: 0.9rem;
+  color: $blue;
+  margin: 5px;
+  align-self: flex-end;
+}
+
+.blue:hover {
+  cursor: pointer;
+}
+
 .rating {
   font-size: 0.8rem;
 }
@@ -90,11 +103,30 @@ input[type="checkbox"] {
   height: 70px;
 }
 
+.inputSmall {
+  border: 1px solid $blue;
+  border-radius: 5px;
+  align-self: center;
+  background-color: $white;
+  width: 95%;
+  margin: 10px;
+  flex: 1;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 0.8rem;
+  font-family: $content;
+  resize: none;
+}
+
 .form {
   width: 100%;
   margin-right: 10px;
 }
 
 .input:focus {
+  outline: none;
+}
+
+.inputSmall:focus {
   outline: none;
 }

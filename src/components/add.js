@@ -13,6 +13,8 @@ class Add extends Component {
     this.state = {
       input: "",
       error: false,
+      note: "",
+      noteOpen: false,
       less: false,
       more: false,
       experience: 2,
@@ -21,6 +23,7 @@ class Add extends Component {
     this.handleCheck = this.handleCheck.bind(this)
     this.handleExp = this.handleExp.bind(this)
     this.submit = this.submit.bind(this)
+    this.openNote = this.openNote.bind(this)
   }
   handleInput(e) {
     this.setState({ [e.target.name]: e.target.value, error: false })
@@ -44,15 +47,19 @@ class Add extends Component {
     }
   }
 
+  openNote() {
+    this.setState({ noteOpen: !this.state.noteOpen })
+  }
   submit(e) {
     e.preventDefault()
-    if (this.state.input < 1) {
+    if (this.state.input.length < 1 || this.state.note.length > 350) {
       this.setState({ error: true })
       return
     }
     const entryData = {
       category: this.props.category,
       entry: this.state.input,
+      note: this.state.note,
       thisWeek: moment().format("W"),
       less: this.state.less,
       more: this.state.more,
@@ -112,36 +119,51 @@ class Add extends Component {
           </div>
           {this.state.error && <p className={add.error}>¯\_(ツ)_/¯ Oops...</p>}
         </div>
-        <div className={add.checkHolderTwo}>
-          <p className={add.freq}>My experience was:</p>
-          <div className={add.frequencyBox}>
-            <input
-              onChange={this.handleExp}
-              checked={exp == 0}
-              name="Positive"
-              type="checkbox"
-            ></input>
-            <p className={add.freqOpt}>Positive</p>
+        <div className={add.row}>
+          <div className={add.checkHolderTwo}>
+            <p className={add.freq}>My experience was:</p>
+            <div className={add.frequencyBox}>
+              <input
+                onChange={this.handleExp}
+                checked={exp == 0}
+                name="Positive"
+                type="checkbox"
+              ></input>
+              <p className={add.freqOpt}>Positive</p>
+            </div>
+            <div className={add.frequencyBox}>
+              <input
+                onChange={this.handleExp}
+                checked={exp == 1}
+                name="Negative"
+                type="checkbox"
+              ></input>
+              <p className={add.freqOpt}>Negative</p>
+            </div>
+            <div className={add.frequencyBox}>
+              <input
+                onChange={this.handleExp}
+                checked={exp == 2}
+                name="Neutral"
+                type="checkbox"
+              ></input>
+              <p className={add.freqOpt}>Neutral</p>
+            </div>
           </div>
-          <div className={add.frequencyBox}>
-            <input
-              onChange={this.handleExp}
-              checked={exp == 1}
-              name="Negative"
-              type="checkbox"
-            ></input>
-            <p className={add.freqOpt}>Negative</p>
-          </div>
-          <div className={add.frequencyBox}>
-            <input
-              onChange={this.handleExp}
-              checked={exp == 2}
-              name="Neutral"
-              type="checkbox"
-            ></input>
-            <p className={add.freqOpt}>Neutral</p>
-          </div>
+          <p onClick={this.openNote} className={add.blue}>
+            add note +
+          </p>
         </div>
+        {this.state.noteOpen && (
+          <textarea
+            placeholder="350 characters or less.."
+            onChange={this.handleInput}
+            type="text"
+            name="note"
+            value={this.state.note}
+            className={add.inputSmall}
+          />
+        )}
       </div>
     )
   }

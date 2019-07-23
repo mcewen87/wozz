@@ -27,11 +27,12 @@ const initialState = firstState
 export default function handleEvents(state = [], action) {
   switch (action.type) {
     case ADD_EVENT:
+      const time = Date.now()
       const initArray = [0, 0, 0]
       initArray[action.payload.experience] = 1
       const newEvent = {
         id: uuid.v4(),
-        timestamp: Date.now(),
+        timestamp: time,
         text: action.payload.entry,
         less: action.payload.less,
         more: action.payload.more,
@@ -45,6 +46,7 @@ export default function handleEvents(state = [], action) {
           value: action.payload.thisWeek,
           counts: 1,
           ratings: initArray,
+          notes: [{ time: time, content: action.payload.note }],
         },
         lastWeek: {},
       }

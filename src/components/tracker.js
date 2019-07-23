@@ -6,6 +6,7 @@ import { deleteEvent } from "../actions/deleteEvent"
 import { resetCategory } from "../actions/resetCategory"
 import ReactCSSTransitionGroup from "react-addons-css-transition-group" // ES6
 import Modal from "react-modal"
+import { Link } from "gatsby"
 import Moment from "react-moment"
 import "../main.scss"
 
@@ -152,6 +153,18 @@ class Tracker extends Component {
               <h2 className={tracker.reset}>Weekly Count: </h2>{" "}
               <h3 className={tracker.since}>{e.thisWeek.counts}</h3>
             </div>
+
+            {e.thisWeek.notes && (
+              <Link to="/notes" state={{ notes: e.thisWeek.notes }}>
+                <div className={tracker.cornerRow}>
+                  <p className={tracker.viewNotes}>View Notes</p>
+                  <FontAwesomeIcon
+                    className={tracker.arrowRight}
+                    icon={faLongArrowAltRight}
+                  ></FontAwesomeIcon>
+                </div>
+              </Link>
+            )}
 
             <div className={tracker.buttonBar}>
               <button

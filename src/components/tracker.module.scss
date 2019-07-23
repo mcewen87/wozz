@@ -153,6 +153,10 @@ button:focus {
   outline: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 .overlay {
   background-color: $red;
 }
@@ -261,6 +265,29 @@ button:focus {
 
 .rankSub:hover {
   box-shadow: none;
+}
+
+.cornerRow {
+  box-sizing: border-box;
+  padding: 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+.cornerRow:hover {
+  cursor: pointer;
+}
+.arrowRight {
+  color: $black;
+  align-self: center;
+}
+
+.viewNotes {
+  font-size: 0.8rem;
+  color: $black;
+  align-self: center;
+  margin: 0px 5px;
 }
 
 @media screen and (max-width: 800px) {

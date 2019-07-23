@@ -1,0 +1,27 @@
+@import "../utilities/vars";
+
+.timeStamp {
+  font-family: $titles;
+  color: $black;
+  font-size: 1.5rem;
+}
+
+.contentStamp {
+  font-family: $content;
+  color: $blue;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.box {
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: $white;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.card {
+  width: 100%;
+  border-bottom: 2px dotted $black;
+  padding: 10px 0px;
+}
