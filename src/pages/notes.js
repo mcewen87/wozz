@@ -11,6 +11,9 @@ class Notes extends Component {
     }
   }
   componentWillMount() {
+    if (typeof window === "undefined") {
+      return
+    }
     this.setState({ notes: this.props.location.state.notes })
   }
   render() {
