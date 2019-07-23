@@ -155,7 +155,10 @@ class Tracker extends Component {
             </div>
 
             {e.thisWeek.notes && (
-              <Link to="/notes" state={{ notes: e.thisWeek.notes }}>
+              <Link
+                to="/notes"
+                state={{ notes: e.thisWeek && e.thisWeek.notes }}
+              >
                 <div className={tracker.cornerRow}>
                   <p className={tracker.viewNotes}>View Notes</p>
                   <FontAwesomeIcon
