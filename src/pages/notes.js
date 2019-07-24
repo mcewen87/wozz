@@ -3,6 +3,9 @@ import noteStyles from "../components/noteStyles.module.scss"
 import Layout from "../components/layout"
 import Moment from "react-moment"
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons"
+
 class Notes extends Component {
   constructor() {
     super()
@@ -19,6 +22,7 @@ class Notes extends Component {
         <Moment className={noteStyles.timeStamp} format="D MMM YYYY" withTitle>
           {e.time}
         </Moment>
+        <FontAwesomeIcon className={noteStyles.pencil} icon={faPencilAlt} />
         <p className={noteStyles.contentStamp}>{e.content}</p>
       </div>
     ))
@@ -26,8 +30,14 @@ class Notes extends Component {
     return (
       <Layout>
         <div className="container">
-          <div className="content">
-            <div className={noteStyles.box}> {noteTiles}</div>
+          <div className={noteStyles.box}>
+            <div className="content">
+              {" "}
+              <h2 className={noteStyles.title}>
+                {this.props.location.state.title}
+              </h2>
+              {noteTiles}
+            </div>
           </div>
         </div>
       </Layout>

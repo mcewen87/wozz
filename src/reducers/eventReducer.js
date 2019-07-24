@@ -79,7 +79,7 @@ export default function handleEvents(state = [], action) {
         ...beforeCategory,
         events: beforeCategory.events.map((e, j) => {
           if (e.id === action.payload.obj.id) {
-            if (thisWeek) {
+            if (thisWeek && action.payload.note.length > 0) {
               return Object.assign({}, e, {
                 timestamp: resetTime,
                 thisWeek: {
@@ -98,7 +98,7 @@ export default function handleEvents(state = [], action) {
                   ],
                 },
               })
-            } else {
+            } else if (!thisWeek && action.payload.note.length > 0) {
               const timeSince = Date.now() - e.timestamp
               const duration =
                 timeSince > e.longestDuration ? timeSince : e.longestDuration
@@ -126,6 +126,52 @@ export default function handleEvents(state = [], action) {
                   counts: 1,
                   ratings: [],
                   notes: [{ time: resetTime, content: action.payload.note }],
+                },
+              })
+            } else if (thisWeek && action.payload.note.length == 0) {
+              return Object.assign({}, e, {
+                timestamp: resetTime,
+                thisWeek: {
+                  value: moment().format("W"),
+                  counts: e.thisWeek.counts + 1,
+                  ratings: e.thisWeek.ratings.map((e, i) => {
+                    if (i === action.payload.rating) {
+                      return e + 1
+                    } else {
+                      return e
+                    }
+                  }),
+                  notes: e.thisWeek.notes,
+                },
+              })
+            } else if (!thisWeek && action.payload.note.length == 0) {
+              const timeSince = Date.now() - e.timestamp
+              const duration =
+                timeSince > e.longestDuration ? timeSince : e.longestDuration
+
+              const len = e.resetHistory.length - 1
+              const newArray = [...e.resetHistory, e.thisWeek.counts]
+              const average = Math.floor(
+                newArray.reduce((a, b) => a + b) / newArray.length
+              )
+              const variance =
+                ((e.thisWeek.counts - e.resetHistory[len]) /
+                  e.resetHistory[len]) *
+                100
+              return Object.assign({}, e, {
+                timestamp: Date.now(),
+                highest: Math.max(...newArray),
+                lowest: Math.min(...newArray),
+                average: average,
+                fluctuation: variance,
+                longestDuration: duration,
+                lastWeek: e.thisWeek,
+                resetHistory: [...e.resetHistory, e.thisWeek.counts],
+                thisWeek: {
+                  value: moment().format("w"),
+                  counts: 1,
+                  ratings: [],
+                  notes: [],
                 },
               })
             }

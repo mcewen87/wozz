@@ -52,7 +52,7 @@ class Add extends Component {
   }
   submit(e) {
     e.preventDefault()
-    if (this.state.input.length < 1 || this.state.note.length > 350) {
+    if (this.state.input.length < 1 || this.state.note.length > 120) {
       this.setState({ error: true })
       return
     }
@@ -156,7 +156,7 @@ class Add extends Component {
         </div>
         {this.state.noteOpen && (
           <textarea
-            placeholder="350 characters or less.."
+            placeholder="120 characters or less.."
             onChange={this.handleInput}
             type="text"
             name="note"

@@ -46,6 +46,7 @@ class Tracker extends Component {
       selectedEvent: {},
       experience: 2,
       note: "",
+      noteError: false,
     }
     this.changeCat = this.changeCat.bind(this)
     this.resetEvent = this.resetEvent.bind(this)
@@ -59,7 +60,7 @@ class Tracker extends Component {
   }
 
   handleInput(e) {
-    this.setState({ [e.target.name]: e.target.value, error: false })
+    this.setState({ [e.target.name]: e.target.value, noteError: false })
   }
 
   openModal(event) {
@@ -82,7 +83,11 @@ class Tracker extends Component {
   }
 
   resetEvent() {
-    this.setState({ modalIsOpen: false })
+    if (this.state.note.length > 120) {
+      this.setState({ noteError: true })
+      return
+    }
+    this.setState({ modalIsOpen: false, note: "", noteError: false })
     this.props.resetEvent({
       obj: this.state.selectedEvent,
       note: this.state.note,
@@ -161,10 +166,10 @@ class Tracker extends Component {
               <h3 className={tracker.since}>{e.thisWeek.counts}</h3>
             </div>
 
-            {e.thisWeek.notes && (
+            {e.thisWeek.notes.length > 0 && (
               <Link
                 to="/notes"
-                state={{ notes: e.thisWeek && e.thisWeek.notes }}
+                state={{ notes: e.thisWeek && e.thisWeek.notes, title: e.text }}
               >
                 <div className={tracker.cornerRow}>
                   <p className={tracker.viewNotes}>View Notes</p>
@@ -237,8 +242,11 @@ class Tracker extends Component {
                   </h3>
                   <div className={tracker.rankingBox}>{makeNumbers()}</div>
                   <h3 className={tracker.question}>Add an optional note:</h3>
+                  {this.state.noteError && (
+                    <h2 className={tracker.error}>Too Long :(</h2>
+                  )}
                   <textarea
-                    placeholder="350 characters or less.."
+                    placeholder="120 characters or less.."
                     onChange={this.handleInput}
                     type="text"
                     name="note"

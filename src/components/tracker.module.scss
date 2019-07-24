@@ -225,6 +225,13 @@ a {
   margin-bottom: 10px;
 }
 
+.error {
+  font-family: $content;
+  color: $red;
+  font-size: 1rem;
+  margin: 0px;
+}
+
 .inputSmall {
   align-self: center;
   border: 2px solid $black;
