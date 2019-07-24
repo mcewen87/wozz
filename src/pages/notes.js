@@ -25,7 +25,6 @@ class Notes extends Component {
         <Moment className={noteStyles.timeStamp} format="D MMM YYYY" withTitle>
           {e.time}
         </Moment>
-        <FontAwesomeIcon className={noteStyles.pencil} icon={faPencilAlt} />
         <p className={noteStyles.contentStamp}>{e.content}</p>
       </div>
     ))

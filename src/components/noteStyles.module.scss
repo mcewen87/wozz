@@ -2,13 +2,13 @@
 
 .timeStamp {
   font-family: $content;
-  color: $white;
+  color: $black;
   font-size: 1.2rem;
 }
 
 .contentStamp {
   font-family: $content;
-  color: $white;
+  color: $black;
   margin-top: 10px;
   font-size: 1rem;
   word-wrap: break-word;
@@ -20,20 +20,20 @@
   min-height: 100vh;
   box-sizing: border-box;
   padding: 20px;
-  background-color: $green;
+  background-color: $white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .pencil {
   margin: 0px 0px 3px 5px;
-  color: $white;
+  color: $black;
 }
 
 .title {
   position: relative;
   font-family: $content;
   font-size: 2rem;
-  color: $white;
+  color: $black;
   margin: 10px 0px;
   right: 10px;
 }
@@ -41,6 +41,6 @@
   width: 100%;
   height: auto;
   margin-bottom: 15px;
-  border-bottom: 2px dotted $white;
+  border-bottom: 2px dotted $black;
   padding: 10px 0px;
 }
