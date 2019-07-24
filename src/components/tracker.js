@@ -166,7 +166,7 @@ class Tracker extends Component {
               <h3 className={tracker.since}>{e.thisWeek.counts}</h3>
             </div>
 
-            {e.thisWeek.notes.length > 0 && (
+            {e.thisWeek.notes && (
               <Link
                 to="/notes"
                 state={{ notes: e.thisWeek && e.thisWeek.notes, title: e.text }}
