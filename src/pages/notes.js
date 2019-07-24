@@ -14,7 +14,10 @@ class Notes extends Component {
     }
   }
   componentDidMount() {
-    this.setState({ notes: this.props.location.state.notes })
+    this.setState({
+      notes: this.props.location.state.notes,
+      title: this.props.location.state.title,
+    })
   }
   render() {
     const noteTiles = this.state.notes.map((e, i) => (
@@ -33,9 +36,7 @@ class Notes extends Component {
           <div className={noteStyles.box}>
             <div className="content">
               {" "}
-              <h2 className={noteStyles.title}>
-                {this.props.location.state.title}
-              </h2>
+              <h2 className={noteStyles.title}>{this.state.title}</h2>
               {noteTiles}
             </div>
           </div>

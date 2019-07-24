@@ -8,7 +8,8 @@
 
 .contentStamp {
   font-family: $content;
-  color: $black;
+  color: $white;
+  margin-top: 10px;
   font-size: 1rem;
   word-wrap: break-word;
   white-space: pre-wrap;
@@ -25,7 +26,7 @@
 
 .pencil {
   margin: 0px 0px 3px 5px;
-  color: $black;
+  color: $white;
 }
 
 .title {
@@ -40,6 +41,6 @@
   width: 100%;
   height: auto;
   margin-bottom: 15px;
-  border-bottom: 2px dotted $yellow;
+  border-bottom: 2px dotted $white;
   padding: 10px 0px;
 }
