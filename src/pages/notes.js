@@ -15,16 +15,17 @@ class Notes extends Component {
   }
   componentDidMount() {
     this.setState({
-      notes: this.props.location.state.notes,
+      notes: this.props.location.state.notes.reverse(),
       title: this.props.location.state.title,
     })
   }
   render() {
     const noteTiles = this.state.notes.map((e, i) => (
-      <div className={noteStyles.card}>
-        <Moment className={noteStyles.timeStamp} format="D MMM YYYY" withTitle>
+      <div className={noteStyles.container}>
+        <Moment className={noteStyles.timeStamp} format="LLLL" withTitle>
           {e.time}
         </Moment>
+        <div className={noteStyles.card}></div>
         <p className={noteStyles.contentStamp}>{e.content}</p>
       </div>
     ))
