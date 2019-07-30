@@ -66,6 +66,7 @@ export default function handleEvents(state = [], action) {
       return updateEventState(state, categoryIndex, newCategory)
 
     case RESET_EVENT:
+      console.log(state)
       const position = action.payload.category
       const beforeCategory = state[position]
       const resetTime = Date.now()
@@ -124,7 +125,7 @@ export default function handleEvents(state = [], action) {
                 thisWeek: {
                   value: moment().format("w"),
                   counts: 1,
-                  ratings: [],
+                  ratings: [0, 0, 0],
                   notes: [{ time: resetTime, content: action.payload.note }],
                 },
               })
@@ -170,7 +171,7 @@ export default function handleEvents(state = [], action) {
                 thisWeek: {
                   value: moment().format("w"),
                   counts: 1,
-                  ratings: [],
+                  ratings: [0, 0, 0],
                   notes: [],
                 },
               })
