@@ -1,48 +1,104 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { Component } from "react"
+import { login, logout, isAuthenticated, getProfile } from "../utilities/auth"
 import header from "./header.module.scss"
 import Headroom from "react-headroom"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCogs } from "@fortawesome/free-solid-svg-icons"
 import { faChartLine } from "@fortawesome/free-solid-svg-icons"
+import { faBars } from "@fortawesome/free-solid-svg-icons"
 
-const Header = () => (
-  <Headroom disableInlineStyles="true">
-    <div className={header.nav}>
-      <div className={header.navDiv}>
-        <Link className={header.link} to="/">
-          Wozz
-        </Link>
-        {/* <Link className={header.link} to="/donate">
-          Blog
-        </Link> */}
-        <Link className={header.link} to="/donate">
-          Donate
-        </Link>
-      </div>
-      <div className={header.navDiv}>
-        <Link className={header.subLink} to="/report">
-          <span className={header.hide}> Weekly Report </span>
-          <FontAwesomeIcon className={header.icons} icon={faChartLine} />
-        </Link>
+class Header extends Component {
+  constructor() {
+    super()
+    this.state = {
+      open: false,
+    }
+    this.openNav = this.openNav.bind(this)
+  }
 
-        <Link className={header.subLink} to="/dashboard">
-          <span className={header.hide}> Dashboard </span>{" "}
-          <FontAwesomeIcon className={header.icons} icon={faCogs} />
-        </Link>
-      </div>
-    </div>
-  </Headroom>
-)
+  openNav() {
+    this.setState({ open: !this.state.open })
+  }
+  render() {
+    return (
+      <Headroom disableInlineStyles="true">
+        <div className={header.topnav}>
+          <div className={header.rows}>
+            <Link className={header.brand} to="/">
+              Wozz
+            </Link>
+            {isAuthenticated() && (
+              <>
+                {" "}
+                <Link
+                  onClick={e => {
+                    logout()
+                    e.preventDefault()
+                  }}
+                  className={header.logIns}
+                  to="/"
+                >
+                  Logout
+                </Link>
+                <Link className={header.logIns} to="/dashboard">
+                  Dashboard
+                </Link>
+                <Link className={header.logIns} to="/report">
+                  Weekly Report
+                </Link>
+              </>
+            )}
+            {!isAuthenticated() && (
+              <>
+                {" "}
+                <Link
+                  onClick={e => {
+                    login()
+                    e.preventDefault()
+                  }}
+                  className={header.logIns}
+                  to="/"
+                >
+                  LogIn
+                </Link>
+                <Link
+                  onClick={e => {
+                    login()
+                    e.preventDefault()
+                  }}
+                  className={header.logIns}
+                  to="/"
+                >
+                  SignUp
+                </Link>
+              </>
+            )}
+          </div>
+          <div className={header.rows}>
+            <FontAwesomeIcon
+              onClick={this.openNav}
+              className={header.bars}
+              icon={faBars}
+            ></FontAwesomeIcon>
+          </div>
+        </div>
+        {this.state.open && (
+          <div className={header.bottomnav}>
+            <Link className={header.bottomFirst} to="/">
+              The Blog
+            </Link>
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+            <Link className={header.bottom} to="/">
+              Donate
+            </Link>
+          </div>
+        )}
+      </Headroom>
+    )
+  }
 }
 
 export default Header

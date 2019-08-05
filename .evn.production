@@ -1,0 +1,5 @@
+# ./.env.development
+# Get these values at https://manage.auth0.com
+AUTH0_DOMAIN="dev-3smref1o.auth0.com"
+AUTH0_CLIENTID="Q33WznKLll8fcGzd14H7cUG33fMRSuRI"
+AUTH0_CALLBACK=https://wozz.netlify.com/callback

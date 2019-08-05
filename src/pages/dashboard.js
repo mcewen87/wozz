@@ -8,6 +8,7 @@ import Layout from "../components/layout"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
+import { login, logout, isAuthenticated, getProfile } from "../utilities/auth"
 
 class Dashboard extends Component {
   constructor() {
@@ -87,20 +88,24 @@ class Dashboard extends Component {
         />
       </div>
     ))
-    return (
-      <Layout>
-        <div className="container">
-          <div className="content">
-            <div className={dashboard.infoBlock}>
-              <div className={dashboard.boxTitle}>Wozz Categories</div>
+    if (isAuthenticated) {
+      return (
+        <Layout>
+          <div className="container">
+            <div className="content">
+              <div className={dashboard.infoBlock}>
+                <div className={dashboard.boxTitle}>Wozz Categories</div>
 
-              <CategorySelect sendOption={this.submitOption} />
-              <div className={dashboard.rows}>{categoryBlocks}</div>
+                <CategorySelect sendOption={this.submitOption} />
+                <div className={dashboard.rows}>{categoryBlocks}</div>
+              </div>
             </div>
           </div>
-        </div>
-      </Layout>
-    )
+        </Layout>
+      )
+    } else if (!isAuthenticated) {
+      return login()
+    }
   }
 }
 

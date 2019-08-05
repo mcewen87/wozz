@@ -9,6 +9,7 @@ import SEO from "../components/seo"
 import Tracker from "../components/tracker"
 import { getData } from "../actions/getData"
 import firstState from "../reducers/initialData"
+import { login, logout, isAuthenticated, getProfile } from "../utilities/auth"
 
 class IndexPage extends Component {
   constructor() {
@@ -17,10 +18,10 @@ class IndexPage extends Component {
       isLoading: true,
       use: false,
     }
-    this.toggleUse = this.toggleUse.bind(this)
   }
   componentDidMount() {
-    const check = localStorage.getItem("use")
+    const check = localStorage.getItem("isLoggedIn")
+
     const eventData = JSON.parse(localStorage.getItem("events"))
 
     if (eventData !== null) {
@@ -46,9 +47,7 @@ class IndexPage extends Component {
       )
     }
   }
-  toggleUse() {
-    this.setState({ use: true })
-  }
+
   render() {
     if (this.state.isLoading) {
       return (
@@ -56,11 +55,16 @@ class IndexPage extends Component {
           <Spinner />
         </Layout>
       )
-    } else {
+    } else if (!isAuthenticated()) {
       return (
         <Layout>
-          {!this.state.use && <Welcome sendUse={this.toggleUse} />}
-          {this.state.use && <Tracker />}
+          <Welcome />
+        </Layout>
+      )
+    } else if (isAuthenticated()) {
+      return (
+        <Layout>
+          <Tracker />
         </Layout>
       )
     }

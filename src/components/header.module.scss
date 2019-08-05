@@ -1,64 +1,83 @@
 @import "../utilities/vars";
 
-.nav {
-  width: 100%;
+/* header */
+
+.topnav {
   display: flex;
-  box-sizing: border-box;
-  padding: 0px 10px;
   flex-direction: row;
-  box-sizing: border-box;
   justify-content: space-between;
-  height: 65px;
+  height: auto;
   background-color: $green;
-  // box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  z-index: 1000;
 }
 
-.navDiv {
+.rows {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 65px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.bars {
   align-self: center;
-  z-index: 1000;
-}
-
-.hide {
-  font-size: 1rem;
+  font-size: 30px;
   margin-right: 10px;
 }
 
-.link {
-  position: relative;
-  align-self: center;
-  font-family: $content;
-  text-decoration: none;
-  color: $white;
-  margin: 0px 20px;
-  font-size: 1rem;
-}
-
-.subLink {
-  position: relative;
-  align-self: center;
-  font-family: $content;
-  text-decoration: none;
-  color: $white;
-  margin: 0px 5px 0px 0px;
-  font-size: 0.8rem;
+.bars:hover {
+  cursor: pointer;
   color: $yellow;
 }
 
-.icons {
-  color: $white;
-  align-self: center;
-  margin: 0px 15px 0px 0px;
-  font-size: 20px;
+.bottomnav {
+  background-color: $black;
+  display: flex;
+  justify-content: center;
+  height: 60px;
+  width: 100%;
 }
 
-@media screen and (max-width: 500px) {
-  .link {
-    margin: 0px 10px;
-    font-size: 1rem;
-  }
+.bottomFirst {
+  padding: 0px 10px;
+  color: $yellow;
+}
 
-  .hide {
-    display: none;
+.bottom {
+  color: $yellow;
+  padding: 0px 10px;
+}
+
+a {
+  font-family: $content;
+  color: $white;
+  align-self: center;
+}
+
+a:hover {
+  color: $red;
+}
+
+.logIns {
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+.brand {
+  font-family: $titles;
+  color: $black;
+  font-size: 2rem;
+  text-shadow: 2px 2px $white;
+}
+
+@media screen and (max-width: 600px) {
+  .brand {
+    font-size: 1.3rem;
+  }
+  .bars {
+    font-size: 20px;
+  }
+  a {
+    font-size: 1rem;
   }
 }
